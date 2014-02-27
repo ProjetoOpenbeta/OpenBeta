@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.Endereco" table="endereco">
+        <id name="id_endereco">
+            <generator class="identity"/>
+        </id>
+        <property name="logradouro"         type="string"   length ="45"    />
+        <property name="rua"                type="string"   length ="90"    />
+        <property name="numero"             type="string"   length ="10"    />
+        <property name="bairro"             type="string"   length ="45"    />
+        <property name="cep"                type="big_decimal"    precision="8" scale="0"/>
+        <property name="cidade"             type="string"   length ="75"    />
+        
+        <many-to-one name="estado" class="br.com.openbeta.modelo.Estado" fetch="select">
+        <!--  column name se refere a coluna da tabela endereco  -->
+            <column name="id_estado" not-null="true" />
+        </many-to-one>
+        
+        <set name="pessoa" table="pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_endereco" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.Pessoa" />
+        </set>
+        
+  </class>
+</hibernate-mapping>
+
+

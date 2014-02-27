@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.Estado" table="estado">
+        <id name="id_estado">
+            <generator class="native"/>
+        </id>
+        <property name="nome_estado"            type="string"       length ="2"    />
+        <property name="nome_estado_inteiro"    type="string"       length ="30"    />
+        
+        <set name="pessoas" table="pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estado" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.Pessoa" />
+        </set>
+        
+        <set name="enderecos" table="endereco" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estado" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.Endereco" />
+        </set>
+        
+  </class>
+</hibernate-mapping>

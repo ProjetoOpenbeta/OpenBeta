@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.Atividade" table="atividade">
+        <id name="id_atividade">
+            <generator class="native"/>
+        </id>
+        
+        <property name="tipo_atividade" type="string"   length ="45"   />
+        
+        <set name="pessoa" table="pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_atividade" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.Pessoa" />
+        </set>
+        
+  </class>
+</hibernate-mapping>

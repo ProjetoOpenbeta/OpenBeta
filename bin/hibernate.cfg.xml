@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/openbeta?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.generate_statistics">true</property>
+    <!-- ARQUIVO DE MAPEAMENTO -->
+    <mapping resource="atividade.hbm.xml"/>
+    <mapping resource="cargo.hbm.xml"/>
+    <mapping resource="contratacao.hbm.xml"/>
+    <mapping resource="endereco.hbm.xml"/>
+    <mapping resource="estado.hbm.xml"/>
+    <mapping resource="estado_civil.hbm.xml"/>
+    <mapping resource="funcao.hbm.xml"/>
+    <mapping resource="graduacao.hbm.xml"/>
+    <mapping resource="pessoa.hbm.xml"/>
+    <mapping resource="setor.hbm.xml"/>
+    <mapping resource="sexo.hbm.xml"/>
+    <mapping resource="situacao.hbm.xml"/>
+    <mapping resource="sub_setor.hbm.xml"/>
+    <mapping resource="telefone_residencial.hbm.xml"/>
+    <mapping resource="tipo_graduacao.hbm.xml"/>
+    <mapping resource="turno.hbm.xml"/>
+    <mapping resource="graduacao_pessoa.hbm.xml"/>
+    <mapping resource="telefone_residencial_pessoa.hbm.xml"/>
+    <mapping resource="funcao_pessoa.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

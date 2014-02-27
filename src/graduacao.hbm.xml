@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.Graduacao" table="graduacao">
+        <id name="id_graduacao">
+            <generator class="identity"/>
+        </id>
+        <property name="data_conclusao"     type="date"                     />
+        <property name="instituicao"        type="string"   length ="90"    />
+        
+        <many-to-one name="tipo_graduacao" class="br.com.openbeta.modelo.TipoGraduacao" fetch="select">
+            <column name="id_tipo_graduacao" not-null="true" />
+        </many-to-one>
+        
+        <set name="graduacao_pessoas" table="graduacao_pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_graduacao" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.GraduacaoPessoa" />
+        </set>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.Funcao" table="funcao">
+        <id name="id_funcao">
+            <generator class="native"/>
+        </id>
+        
+        <many-to-one name="cargo" class="br.com.openbeta.modelo.Cargo" fetch="select">
+            <column name="id_cargo" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="setor" class="br.com.openbeta.modelo.Setor" fetch="select">
+            <column name="id_setor" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="subSetor" class="br.com.openbeta.modelo.SubSetor" fetch="select">
+            <column name="id_sub_setor" not-null="true" />
+        </many-to-one>
+        
+        <many-to-one name="turno" class="br.com.openbeta.modelo.Turno" fetch="select">
+            <column name="id_turno" not-null="true" />
+        </many-to-one>
+        
+        <set name="funcao_pessoas" table="funcao_pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <!--  column name se refere a coluna da tabela funcao -->
+                <column name="id_funcao" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.FuncaoPessoa" />
+        </set>
+  </class>
+</hibernate-mapping>

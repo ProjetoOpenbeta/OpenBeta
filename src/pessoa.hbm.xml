@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.Pessoa" table="pessoa">
+        <id name="id_pessoa">
+            <generator class="identity"/>
+        </id>
+        <property name="nome"               type="string"   length ="90"    />
+        <property name="registro"           type="integer"  length ="11"    />
+        <property name="rg"                 type="integer"  length ="12"    />
+        <property name="cpf"                type="string"   length ="11"    />
+        <property name="data_nascto"        type="date"                     />
+        <property name="nome_mae"           type="string"   length ="90"    />
+        <property name="senha"              type="string"   length ="45"    />
+        <property name="email_principal"    type="string"   length ="100"   />
+        <property name="email_adicional"    type="string"   length ="100"   />
+        <property name="telefone_celular"   type="string"   length ="45"    />
+        <property name="telefone_celular_2" type="string"   length ="45"    />
+        <property name="cidade_natal"       type="string"   length ="75"    />
+        <property name="outros"             type="string"   length ="255"   />
+
+        <many-to-one name="atividade" class="br.com.openbeta.modelo.Atividade" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_atividade" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="contratacao" class="br.com.openbeta.modelo.Contratacao" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_contratacao" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="endereco" class="br.com.openbeta.modelo.Endereco" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_endereco" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="estadoNatal" class="br.com.openbeta.modelo.Estado" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_estado_natal" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="estadoCivil" class="br.com.openbeta.modelo.EstadoCivil" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_estado_civil" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="situacao" class="br.com.openbeta.modelo.Situacao" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_situacao" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="sexo" class="br.com.openbeta.modelo.Sexo" fetch="select">
+        <!--  column name se refere a coluna da tabela pessoa  -->
+            <column name="id_sexo" not-null="true" />
+        </many-to-one>
+        
+        <set name="graduacao_pessoa" table="graduacao_pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.GraduacaoPessoa" />
+        </set>
+        
+        <set name="telefone_residencial_pessoa" table="telefone_residencial_pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.TelefoneResidencialPessoa" />
+        </set>
+        
+        <set name="funcao_pessoa" table="funcao_pessoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="br.com.openbeta.modelo.FuncaoPessoa" />
+        </set>
+        
+  </class>
+</hibernate-mapping>

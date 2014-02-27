@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+                "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="br.com.openbeta.modelo.FuncaoPessoa" table="funcao_pessoa">
+        <id name="id_funcao_pessoa">
+            <generator class="native"/>
+        </id>
+
+        <many-to-one name="funcao" class="br.com.openbeta.modelo.Funcao" fetch="select">
+            <column name="id_funcao" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="pessoa" class="br.com.openbeta.modelo.Pessoa" fetch="select">
+            <column name="id_pessoa" not-null="true" />
+        </many-to-one>
+
+  </class>
+</hibernate-mapping>
