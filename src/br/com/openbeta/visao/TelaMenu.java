@@ -176,7 +176,7 @@ public class TelaMenu extends JFrame {
 		
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TAlteracaoSenha().setVisible(true);
+				new TelaAlteracaoSenha().setVisible(true);
 				dispose();
 			}
 		});

@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 
 import br.com.openbeta.controle.EAO;
 import br.com.openbeta.modelo.Pessoa;
-import br.com.openbeta.visao.TAlteracaoSenha;
+import br.com.openbeta.visao.TelaAlteracaoSenha;
 import br.com.openbeta.visao.TelaInicial;
 import br.com.openbeta.visao.TelaMenu;
 
@@ -54,7 +54,7 @@ public class Md5 {
             
             if (senha.equals("CARMELO")) {
                 JOptionPane.showMessageDialog(null, "Seja Bem Vindo! \nFavor alterar sua senha!","LOGIN AUTORIZADO",JOptionPane.INFORMATION_MESSAGE);
-                new TAlteracaoSenha().setVisible(true);
+                new TelaAlteracaoSenha().setVisible(true);
             } else if (md5.equals(senha_vinicius)) {
                 JOptionPane.showMessageDialog(null, "Seja Bem Vindo!","LOGIN AUTORIZADO",JOptionPane.INFORMATION_MESSAGE);
                 new TelaMenu().setVisible(true);
