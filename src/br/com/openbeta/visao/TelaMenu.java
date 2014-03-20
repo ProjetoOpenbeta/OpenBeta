@@ -121,7 +121,7 @@ public class TelaMenu extends JFrame {
 		
 		btnIncluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TCadastro().setVisible(true);
+				new TelaCadastro().setVisible(true);
 			}
 		});
 		
