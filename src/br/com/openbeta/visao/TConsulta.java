@@ -46,6 +46,7 @@ import br.com.openbeta.modelo.TelefoneResidencial;
 import br.com.openbeta.modelo.TelefoneResidencialPessoa;
 import br.com.openbeta.modelo.TipoGraduacao;
 import br.com.openbeta.modelo.Turno;
+import javax.swing.DefaultComboBoxModel;
 
 
 /**
@@ -273,7 +274,7 @@ public class TConsulta extends javax.swing.JFrame {
         });
         jPanel6.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 100, -1));
 
-        jComboBoxGraduacao1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "ESPANHOL", "INGLES", "ITALIANO", "FRANCÃŠS", "BANCO DE DADOS", "REDES E S.O.", "INFORMÃ�TICA INSTRUMENTAL" }));
+        jComboBoxGraduacao1.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ESPANHOL", "INGLES", "ITALIANO", "FRANCES", "BANCO DE DADOS", "REDES E S.O.", "INFORMATICA INSTRUMENTAL"}));
         jComboBoxGraduacao1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxGraduacao1ActionPerformed(evt);
