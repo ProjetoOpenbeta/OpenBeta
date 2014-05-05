@@ -195,6 +195,14 @@ public class TelaInicial extends JFrame {
 
 				super.keyReleased(arg0);
 			}
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				String caracter = "0987654321";
+				
+				if(!caracter.contains(arg0.getKeyChar()+"")){
+					arg0.consume();
+				}
+			}
 		});
 
 		JLabel lblSenha = new JLabel("Senha:");
@@ -284,8 +292,9 @@ public class TelaInicial extends JFrame {
 		        String cpfSomenteNumeros = "";
 
 		        if (cpf != null && !cpf.equals("")) {
-		        	cpfSomenteNumeros = cpf.replaceAll("\\.", "").replaceAll("\\-", "");  //retira os pontos e h√≠fen.
+		        	cpfSomenteNumeros = cpf.replaceAll(".", "").replaceAll("-", "");  //retira os pontos e h√≠fen.
 		        }
+		        
 		        if (cpf.equals("")) {
 		            java.awt.Toolkit.getDefaultToolkit().beep();
 		            lblNotificacao.setText("Os campos s„o obrigatÛrios");
@@ -293,7 +302,7 @@ public class TelaInicial extends JFrame {
 
 		        } else {
 
-		            usuario = textFieldCPF.getText();
+		            usuario = cpfSomenteNumeros;
 		            senha = passwordField.getText();
 		            cpfCorreto = ValidaCPF.isCPF(cpf);
 
@@ -301,7 +310,7 @@ public class TelaInicial extends JFrame {
 		                lblNotificacao.setText("* Informe a Senha!");
 		                passwordField.requestFocus();
 		            } else if (cpfCorreto) {
-		                Md5.md5(cpf, senha);
+		                Md5.md5(usuario, senha);
 		                dispose();
 		            } else {
 		                JOptionPane.showMessageDialog(null, " Informe um CPF v·lido!", "ERRO!", JOptionPane.ERROR_MESSAGE);
@@ -319,7 +328,7 @@ public class TelaInicial extends JFrame {
 		            String cpf;
 		            usuario = textFieldCPF.getText();
 		            senha = passwordField.getText();
-		            cpf = usuario.replaceAll("\\.", "").replaceAll("\\-", "");
+		            cpf = usuario.replaceAll(".", "").replaceAll("-", "");
 		            cpfCorreto = ValidaCPF.isCPF(cpf);
 		            if (cpfCorreto) {
 		                Md5.md5(cpf, senha);
