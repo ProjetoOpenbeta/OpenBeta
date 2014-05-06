@@ -132,10 +132,11 @@ public class TelaMenu extends JFrame {
 		gbc_btnConsultar.gridx = 0;
 		gbc_btnConsultar.gridy = 4;
 		contentPane.add(btnConsultar, gbc_btnConsultar);
+		btnConsultar.setVisible(false);
 		
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TConsulta().setVisible(true);
+				new TelaConsulta().setVisible(true);
 			}
 		});
 

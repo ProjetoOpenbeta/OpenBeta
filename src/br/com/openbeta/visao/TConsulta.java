@@ -46,7 +46,17 @@ import br.com.openbeta.modelo.TelefoneResidencial;
 import br.com.openbeta.modelo.TelefoneResidencialPessoa;
 import br.com.openbeta.modelo.TipoGraduacao;
 import br.com.openbeta.modelo.Turno;
+
 import javax.swing.DefaultComboBoxModel;
+
+import java.awt.Dimension;
+
+import javax.swing.ButtonGroup;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JRadioButton;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -76,10 +86,29 @@ public class TConsulta extends javax.swing.JFrame {
     private TelefoneResidencialPessoa telefone_residencial_pessoa = new TelefoneResidencialPessoa();
     private GraduacaoPessoa graduacao_pessoa = new GraduacaoPessoa();
     private FuncaoPessoa funcao_pessoa = new FuncaoPessoa();
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBFechar;
+    private javax.swing.JButton jBGravar;
+    private javax.swing.JButton jBLimpar;
+    private javax.swing.JComboBox jComboBoxGraduacao1;
+    private javax.swing.JComboBox jComboBoxGraduacao4;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTCodigo1;
+    private javax.swing.JTextField jTNome1;
+    private javax.swing.JTable jTableConsulta;
+    private javax.swing.JTabbedPane jTabprof1;
+    private JRadioButton rdbtnSetorOuCurso;
+    
 
     /**
      * Creates new form TCadastro
-     */
+     **/
     public TConsulta() {
         initComponents();
     }
@@ -100,14 +129,19 @@ public class TConsulta extends javax.swing.JFrame {
         jTabprof1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton1.setBounds(170, 20, 70, 24);
         jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton2.setBounds(390, 90, 159, 24);
         jTCodigo1 = new javax.swing.JTextField();
+        jTCodigo1.setBounds(20, 50, 100, 20);
         jTNome1 = new javax.swing.JTextField();
+        jTNome1.setBounds(170, 50, 530, 20);
         jComboBoxGraduacao4 = new javax.swing.JComboBox();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        jComboBoxGraduacao4.setBounds(20, 120, 310, 20);
         jComboBoxGraduacao1 = new javax.swing.JComboBox();
+        jComboBoxGraduacao1.setBounds(390, 120, 310, 20);
         jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane1.setBounds(20, 170, 680, 440);
         jTableConsulta = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -213,7 +247,6 @@ public class TConsulta extends javax.swing.JFrame {
         jPanel6.setMaximumSize(new java.awt.Dimension(847, 847));
         jPanel6.setMinimumSize(new java.awt.Dimension(800, 600));
         jPanel6.setPreferredSize(new java.awt.Dimension(600, 600));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jRadioButton1.setText("Nome");
         jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -222,7 +255,8 @@ public class TConsulta extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel6.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 70, -1));
+        jPanel6.setLayout(null);
+        jPanel6.add(jRadioButton1);
 
         jRadioButton2.setText("Sub-setor ou Disciplina:");
         jRadioButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -231,31 +265,21 @@ public class TConsulta extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-        jPanel6.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 150, -1));
-
-        jRadioButton3.setText("CÃ³digo");
-        jRadioButton3.setHideActionText(true);
-        jRadioButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, -1));
+        jPanel6.add(jRadioButton2);
 
         jTCodigo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTCodigo1jTextField11ActionPerformed(evt);
             }
         });
-        jPanel6.add(jTCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 100, -1));
+        jPanel6.add(jTCodigo1);
 
         jTNome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTNome1ActionPerformed(evt);
             }
         });
-        jPanel6.add(jTNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 530, -1));
+        jPanel6.add(jTNome1);
 
         jComboBoxGraduacao4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "ENSINO FUNDAMENTAL", "ENSINO MÃ‰DIO", "CELEM", "TÃ‰CNICO INFORMÃ�TICA - SUBSEQUENTE", "TÃ‰CNICO INFORMÃ�TICA - INTEGRAL" }));
         jComboBoxGraduacao4.addActionListener(new java.awt.event.ActionListener() {
@@ -263,16 +287,7 @@ public class TConsulta extends javax.swing.JFrame {
                 jComboBoxGraduacao4ActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBoxGraduacao4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 310, 20));
-
-        jRadioButton4.setText("Setor ou curso");
-        jRadioButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 100, -1));
+        jPanel6.add(jComboBoxGraduacao4);
 
         jComboBoxGraduacao1.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ESPANHOL", "INGLES", "ITALIANO", "FRANCES", "BANCO DE DADOS", "REDES E S.O.", "INFORMATICA INSTRUMENTAL"}));
         jComboBoxGraduacao1.addActionListener(new java.awt.event.ActionListener() {
@@ -280,45 +295,63 @@ public class TConsulta extends javax.swing.JFrame {
                 jComboBoxGraduacao1ActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBoxGraduacao1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 310, 20));
+        jPanel6.add(jComboBoxGraduacao1);
 
-        jTableConsulta.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
+        jTableConsulta.setModel(new DefaultTableModel(
+        	new Object[][] {
+        		{null, null, null, null},
+        		{null, null, null, null},
+        		{null, null, null, null},
+        		{null, null, null, null},
+        	},
+        	new String[] {
+        		"Titulo 1", "Titulo 2", "Titulo 3", "Titulo 4"
+        	}
         ));
         jScrollPane1.setViewportView(jTableConsulta);
 
-        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 680, 440));
+        jPanel6.add(jScrollPane1);
 
         jTabprof1.addTab("Consulta", jPanel6);
+        
+        JRadioButton jRadioButton3 = new JRadioButton("Código");
+        jRadioButton3.setBounds(20, 20, 64, 24);
+        jPanel6.add(jRadioButton3);
+        
+        rdbtnSetorOuCurso = new JRadioButton("Setor ou curso");
+        rdbtnSetorOuCurso.setBounds(20, 90, 109, 24);
+        jPanel6.add(rdbtnSetorOuCurso);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabprof1, javax.swing.GroupLayout.PREFERRED_SIZE, 732, Short.MAX_VALUE)
-                .addGap(83, 83, 83))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel10, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+        			.addGap(34)
+        			.addComponent(jTabprof1, GroupLayout.PREFERRED_SIZE, 732, Short.MAX_VALUE)
+        			.addGap(27))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabprof1, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jPanel10, GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jTabprof1, GroupLayout.PREFERRED_SIZE, 664, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
+        
+        ButtonGroup bg = new ButtonGroup();
+        
+        bg.add(jRadioButton1);
+        bg.add(jRadioButton3);
+        
+        ButtonGroup bg2 = new ButtonGroup();
+        bg2.add(jRadioButton2);
+        bg2.add(rdbtnSetorOuCurso);
+        
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGravarActionPerformed
@@ -369,10 +402,6 @@ public class TConsulta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
     private void jTCodigo1jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigo1jTextField11ActionPerformed
 ///
     }//GEN-LAST:event_jTCodigo1jTextField11ActionPerformed
@@ -384,10 +413,6 @@ public class TConsulta extends javax.swing.JFrame {
     private void jComboBoxGraduacao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGraduacao4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxGraduacao4ActionPerformed
-
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jComboBoxGraduacao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGraduacao1ActionPerformed
         // TODO add your handling code here:
@@ -411,22 +436,4 @@ public class TConsulta extends javax.swing.JFrame {
             }
         });
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBFechar;
-    private javax.swing.JButton jBGravar;
-    private javax.swing.JButton jBLimpar;
-    private javax.swing.JComboBox jComboBoxGraduacao1;
-    private javax.swing.JComboBox jComboBoxGraduacao4;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTCodigo1;
-    private javax.swing.JTextField jTNome1;
-    private javax.swing.JTable jTableConsulta;
-    private javax.swing.JTabbedPane jTabprof1;
-    // End of variables declaration//GEN-END:variables
 }
