@@ -276,6 +276,16 @@ public class TelaInicial extends JFrame {
 		
 		//Bot�o Acessar
 		btnAcessar = new JButton("ACESSAR");
+		btnAcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		/*btnAcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String usuario = textFieldCPF.getText().replace("-", "").replace(".", "");
+				JOptionPane.showMessageDialog(null, usuario);
+			}
+		});*/
 		GridBagConstraints gbc_btnAcessar = new GridBagConstraints();
 		gbc_btnAcessar.weightx = 1.2;
 		gbc_btnAcessar.insets = new Insets(5, 5, 10, 20);
@@ -283,16 +293,17 @@ public class TelaInicial extends JFrame {
 		gbc_btnAcessar.gridx = 1;
 		gbc_btnAcessar.gridy = 3;
 		panel_4.add(btnAcessar, gbc_btnAcessar);
-	
+		
 		btnAcessar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent evt) {
-
+				
 				String cpf = (textFieldCPF.getText());
 		        String senha = (passwordField.getText()); 
 		        String cpfSomenteNumeros = "";
 
 		        if (cpf != null && !cpf.equals("")) {
-		        	cpfSomenteNumeros = cpf.replaceAll(".", "").replaceAll("-", "");  //retira os pontos e hífen.
+		        	cpfSomenteNumeros = cpf.replace(".", "").replace("-", "");  //retira os pontos e hífen.
 		        }
 		        
 		        if (cpf.equals("")) {
@@ -304,7 +315,7 @@ public class TelaInicial extends JFrame {
 
 		            usuario = cpfSomenteNumeros;
 		            senha = passwordField.getText();
-		            cpfCorreto = ValidaCPF.isCPF(cpf);
+		            cpfCorreto = ValidaCPF.isCPF(usuario);
 
 		            if (cpfCorreto && senha.equals("")) {
 		                lblNotificacao.setText("* Informe a Senha!");
@@ -320,7 +331,7 @@ public class TelaInicial extends JFrame {
 		        }
 			}
 		});
-
+		
 		btnAcessar.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent evt) {
