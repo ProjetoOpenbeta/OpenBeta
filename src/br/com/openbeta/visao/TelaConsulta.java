@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -57,7 +58,12 @@ import br.com.openbeta.renderers.FuncoesTableModel2;
 import br.com.openbeta.renderers.GraduacoesTableModel2;
 import br.com.openbeta.utilitarios.Md5;
 import br.com.openbeta.utilitarios.ValidaCPF;
+
 import javax.swing.JRadioButton;
+import java.awt.Font;
+import java.awt.Window.Type;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class TelaConsulta extends JFrame {
@@ -68,6 +74,8 @@ public class TelaConsulta extends JFrame {
 	private JButton jBPesquisar;
 	private JButton jBLimpar;
 	private JButton jBFechar;
+	private int tipoPesq1;
+	private int tipoPesq2;
 	
 	
 	private EAO                         pessoaEAO                       = new EAO(Pessoa.class);
@@ -78,14 +86,13 @@ public class TelaConsulta extends JFrame {
     private EAO                         telefoneResidencialPessoaEAO    = new EAO(TelefoneResidencialPessoa.class);
     private GraduacoesTableModel2       modelGraduacao                  = new GraduacoesTableModel2();
     private FuncoesTableModel2          modelFuncao                     = new FuncoesTableModel2();
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
-    
-	/**
-	 * Launch the application.
-	 */
+    private JTextField txtCodigo;
+    private JTextField txtNome;
+    private JTextField txtSetCurso;
+    private JTextField txtSubDisciplina;
+    private ButtonGroup bg1;
+    private ButtonGroup bg2;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -99,13 +106,10 @@ public class TelaConsulta extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public TelaConsulta() {
+		setType(Type.UTILITY);
 		setResizable(false);
 		setTitle("Cadastro");
-		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
@@ -117,6 +121,10 @@ public class TelaConsulta extends JFrame {
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
+		
+		bg1 = new ButtonGroup();
+		bg2 = new ButtonGroup();
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 100, 0));
@@ -134,6 +142,19 @@ public class TelaConsulta extends JFrame {
 		panel.setLayout(gbl_panel);
 		
 		jBPesquisar = new JButton("Pesquisar");
+		jBPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				switch (tipoPesq1){
+					case 1:
+						
+					case 2:
+						
+					default:
+						JOptionPane.showMessageDialog(null, "Pesquisa inválida por favor insira ou o código ou o nome do registro!");
+				}
+			}
+		});
+		jBPesquisar.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBPesquisar = new GridBagConstraints();
 		gbc_jBPesquisar.fill = GridBagConstraints.BOTH;
 		gbc_jBPesquisar.insets = new Insets(25, 10, 5, 10);
@@ -142,6 +163,7 @@ public class TelaConsulta extends JFrame {
 		panel.add(jBPesquisar, gbc_jBPesquisar);
 		
 		jBLimpar = new JButton("Limpar");
+		jBLimpar.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBLimpar = new GridBagConstraints();
 		gbc_jBLimpar.fill = GridBagConstraints.BOTH;
 		gbc_jBLimpar.insets = new Insets(0, 10, 5, 10);
@@ -150,6 +172,12 @@ public class TelaConsulta extends JFrame {
 		panel.add(jBLimpar, gbc_jBLimpar);
 		
 		jBFechar = new JButton("Fechar");
+		jBFechar.setFont(new Font("Arial", Font.PLAIN, 11));
+		jBFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		GridBagConstraints gbc_jBFechar = new GridBagConstraints();
 		gbc_jBFechar.fill = GridBagConstraints.BOTH;
 		gbc_jBFechar.insets = new Insets(0, 10, 5, 10);
@@ -158,6 +186,7 @@ public class TelaConsulta extends JFrame {
 		panel.add(jBFechar, gbc_jBFechar);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
 		gbc_tabbedPane.fill = GridBagConstraints.BOTH;
 		gbc_tabbedPane.gridx = 1;
@@ -189,35 +218,66 @@ public class TelaConsulta extends JFrame {
 		panel_0.setLayout(gbl_panel_0);
 		
 		JRadioButton rdbtnCodigo = new JRadioButton("C\u00F3digo");
+		rdbtnCodigo.setFont(new Font("Arial", Font.PLAIN, 11));
+		rdbtnCodigo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtCodigo.setEditable(true);
+				txtNome.setEditable(false);
+				tipoPesq1 = 1;
+			}
+		});
 		GridBagConstraints gbc_rdbtnCodigo = new GridBagConstraints();
 		gbc_rdbtnCodigo.insets = new Insets(0, 0, 0, 5);
 		gbc_rdbtnCodigo.gridx = 0;
 		gbc_rdbtnCodigo.gridy = 0;
 		panel_0.add(rdbtnCodigo, gbc_rdbtnCodigo);
+		bg1.add(rdbtnCodigo);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 0, 5);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 0;
-		panel_0.add(textField, gbc_textField);
-		textField.setColumns(10);
+		txtCodigo = new JTextField();
+		txtCodigo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				String caracteres = "0987654321";
+				if(!caracteres.contains(arg0.getKeyChar()+"")){
+					arg0.consume();
+				}
+			}
+		});
+		txtCodigo.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtCodigo.setEditable(false);
+		GridBagConstraints gbc_txtCodigo = new GridBagConstraints();
+		gbc_txtCodigo.insets = new Insets(0, 0, 0, 5);
+		gbc_txtCodigo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtCodigo.gridx = 1;
+		gbc_txtCodigo.gridy = 0;
+		panel_0.add(txtCodigo, gbc_txtCodigo);
+		txtCodigo.setColumns(10);
 		
 		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setFont(new Font("Arial", Font.PLAIN, 11));
+		rdbtnNome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtNome.setEditable(true);
+				txtCodigo.setEditable(false);
+				tipoPesq1 = 2;
+			}
+		});
 		GridBagConstraints gbc_rdbtnNome = new GridBagConstraints();
 		gbc_rdbtnNome.insets = new Insets(0, 0, 0, 5);
 		gbc_rdbtnNome.gridx = 2;
 		gbc_rdbtnNome.gridy = 0;
 		panel_0.add(rdbtnNome, gbc_rdbtnNome);
+		bg1.add(rdbtnNome);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 3;
-		gbc_textField_1.gridy = 0;
-		panel_0.add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		txtNome = new JTextField();
+		txtNome.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtNome.setEditable(false);
+		GridBagConstraints gbc_txtNome = new GridBagConstraints();
+		gbc_txtNome.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtNome.gridx = 3;
+		gbc_txtNome.gridy = 0;
+		panel_0.add(txtNome, gbc_txtNome);
+		txtNome.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
@@ -234,35 +294,57 @@ public class TelaConsulta extends JFrame {
 		panel_1.setLayout(gbl_panel_1);
 		
 		JRadioButton rdbtnSetorCurso = new JRadioButton("Setor ou Curso");
+		rdbtnSetorCurso.setFont(new Font("Arial", Font.PLAIN, 11));
+		rdbtnSetorCurso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtSetCurso.setEditable(true);
+				txtSubDisciplina.setEditable(false);
+				tipoPesq2 = 1;
+			}
+		});
 		GridBagConstraints gbc_rdbtnSetorCurso = new GridBagConstraints();
 		gbc_rdbtnSetorCurso.insets = new Insets(0, 0, 0, 5);
 		gbc_rdbtnSetorCurso.gridx = 0;
 		gbc_rdbtnSetorCurso.gridy = 0;
 		panel_1.add(rdbtnSetorCurso, gbc_rdbtnSetorCurso);
+		bg2.add(rdbtnSetorCurso);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 0, 5);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 1;
-		gbc_textField_2.gridy = 0;
-		panel_1.add(textField_2, gbc_textField_2);
+		txtSetCurso = new JTextField();
+		txtSetCurso.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtSetCurso.setEditable(false);
+		txtSetCurso.setColumns(10);
+		GridBagConstraints gbc_txtSetCurso = new GridBagConstraints();
+		gbc_txtSetCurso.insets = new Insets(0, 0, 0, 5);
+		gbc_txtSetCurso.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtSetCurso.gridx = 1;
+		gbc_txtSetCurso.gridy = 0;
+		panel_1.add(txtSetCurso, gbc_txtSetCurso);
 		
 		JRadioButton rdbtnSubsetorDisciplina = new JRadioButton("Sub-setor ou Disciplina");
+		rdbtnSubsetorDisciplina.setFont(new Font("Arial", Font.PLAIN, 11));
+		rdbtnSubsetorDisciplina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtSubDisciplina.setEditable(true);
+				txtSetCurso.setEditable(false);
+				tipoPesq2 = 2;
+			}
+		});
 		GridBagConstraints gbc_rdbtnSubsetorDisciplina = new GridBagConstraints();
 		gbc_rdbtnSubsetorDisciplina.insets = new Insets(0, 0, 0, 5);
 		gbc_rdbtnSubsetorDisciplina.gridx = 2;
 		gbc_rdbtnSubsetorDisciplina.gridy = 0;
 		panel_1.add(rdbtnSubsetorDisciplina, gbc_rdbtnSubsetorDisciplina);
+		bg2.add(rdbtnSubsetorDisciplina);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_3.gridx = 3;
-		gbc_textField_3.gridy = 0;
-		panel_1.add(textField_3, gbc_textField_3);
+		txtSubDisciplina = new JTextField();
+		txtSubDisciplina.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtSubDisciplina.setEditable(false);
+		txtSubDisciplina.setColumns(10);
+		GridBagConstraints gbc_txtSubDisciplina = new GridBagConstraints();
+		gbc_txtSubDisciplina.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtSubDisciplina.gridx = 3;
+		gbc_txtSubDisciplina.gridy = 0;
+		panel_1.add(txtSubDisciplina, gbc_txtSubDisciplina);
 		
 		JPanel panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
@@ -301,13 +383,16 @@ public class TelaConsulta extends JFrame {
 		panel_3.add(scrollPane, gbc_scrollPane);
 		
 		jTableConsulta = new JTable();
+		jTableConsulta.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTableConsulta.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
-				"Tipo de graduação", "Instituição/Curso", "Data de conclusão"
+				"C\u00F3digo", "Nome", "CPF", "Telefone 1", "Telefone 2", "Outros", "Tipo de gradua\u00E7\u00E3o", "Institui\u00E7\u00E3o/Curso", "Data de conclus\u00E3o"
 			}
 		));
+		jTableConsulta.getColumnModel().getColumn(0).setPreferredWidth(49);
+		jTableConsulta.getColumnModel().getColumn(1).setPreferredWidth(184);
 		scrollPane.setViewportView(jTableConsulta);
 		
 		/////////////////////////////////////////////////////

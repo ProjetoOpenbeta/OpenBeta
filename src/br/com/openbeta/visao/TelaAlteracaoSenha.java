@@ -33,6 +33,7 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -44,6 +45,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
+import br.com.openbeta.controle.JDBC;
 import br.com.openbeta.modelo.Pessoa;
 import br.com.openbeta.utilitarios.Md5;
 import br.com.openbeta.utilitarios.ValidaCPF;
@@ -275,10 +277,17 @@ public class TelaAlteracaoSenha extends JFrame {
 		            } else if ((senha_nova_confirmacao.equals(senha_anterior)) || (senha_nova.equals(senha_anterior))) {
 		                JOptionPane.showMessageDialog(null,"Nova senha precisa ser diferente da senha anterior!","NOVA SENHA INVÁLIDA",JOptionPane.ERROR_MESSAGE);
 		            } else {
-		                JOptionPane.showMessageDialog(null,"Senha alterada com sucesso!","SENHA ALTERADA",JOptionPane.INFORMATION_MESSAGE);
 		                new TelaMenu().setVisible(true);
+		                JDBC conexaoJdbc = new JDBC();
 		                Pessoa pessoa = new Pessoa();
-		                pessoa.setsenha(senha_nova);
+		                pessoa.setcpf(cpf);
+		                String md5 = Md5.setMd5(senha_nova);      
+		                pessoa.setsenha(md5);
+		                try {
+							conexaoJdbc.alteraSenha(pessoa);
+						} catch (ClassNotFoundException | SQLException e) {
+							JOptionPane.showMessageDialog(null, "Erro! "+e.getMessage());
+						}
 		                dispose();
 		            }
 		        } else {

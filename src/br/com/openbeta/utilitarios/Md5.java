@@ -82,5 +82,4 @@ public class Md5 {
 	    String senha_md5 = hash.toString(16);              
             return senha_md5;
             }
-        
 }

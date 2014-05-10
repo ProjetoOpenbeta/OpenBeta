@@ -112,6 +112,7 @@ public class TelaMenu extends JFrame {
 		contentPane.add(panel_1, gbc_panel_1);
 		
 		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_btnIncluir = new GridBagConstraints();
 		gbc_btnIncluir.insets = new Insets(0, 0, 5, 0);
 		gbc_btnIncluir.fill = GridBagConstraints.BOTH;
@@ -126,13 +127,13 @@ public class TelaMenu extends JFrame {
 		});
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_btnConsultar = new GridBagConstraints();
 		gbc_btnConsultar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnConsultar.fill = GridBagConstraints.BOTH;
 		gbc_btnConsultar.gridx = 0;
 		gbc_btnConsultar.gridy = 4;
 		contentPane.add(btnConsultar, gbc_btnConsultar);
-		btnConsultar.setVisible(false);
 		
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,6 +142,7 @@ public class TelaMenu extends JFrame {
 		});
 
 		JButton btnRelatorios = new JButton("Relat\u00F3rios");
+		btnRelatorios.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_btnRelatorios = new GridBagConstraints();
 		gbc_btnRelatorios.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRelatorios.fill = GridBagConstraints.BOTH;
@@ -168,6 +170,7 @@ public class TelaMenu extends JFrame {
 		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 		
 		JButton btnAlterarSenha = new JButton("Alterar Senha");
+		btnAlterarSenha.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_btnAlterarSenha = new GridBagConstraints();
 		gbc_btnAlterarSenha.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAlterarSenha.fill = GridBagConstraints.BOTH;
@@ -183,6 +186,7 @@ public class TelaMenu extends JFrame {
 		});
 
 		JButton btnSair = new JButton("SAIR");
+		btnSair.setFont(new Font("Arial", Font.PLAIN, 11));
 		btnSair.setForeground(Color.RED);
 		GridBagConstraints gbc_btnSair = new GridBagConstraints();
 		gbc_btnSair.fill = GridBagConstraints.HORIZONTAL;
