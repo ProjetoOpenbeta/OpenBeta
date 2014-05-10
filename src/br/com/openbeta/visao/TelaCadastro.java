@@ -1149,6 +1149,9 @@ public class TelaCadastro extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (validarCampos() == true) {
                     salvar();
+                    JOptionPane.showMessageDialog(null, "Dados gravados com sucesso!");
+                    dispose();
+                    main(null);
                 }           
             }
          });
@@ -1280,7 +1283,8 @@ public class TelaCadastro extends JFrame {
         salvarFuncaoPessoa(pessoa);
     }
     
-    private Pessoa salvarPessoa() {
+    @SuppressWarnings("deprecation")
+	private Pessoa salvarPessoa() {
         Pessoa pessoa = new Pessoa();
 
         Contratacao contratacao = new Contratacao();

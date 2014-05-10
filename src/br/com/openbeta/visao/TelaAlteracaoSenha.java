@@ -44,6 +44,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
+import br.com.openbeta.modelo.Pessoa;
 import br.com.openbeta.utilitarios.Md5;
 import br.com.openbeta.utilitarios.ValidaCPF;
 
@@ -276,6 +277,8 @@ public class TelaAlteracaoSenha extends JFrame {
 		            } else {
 		                JOptionPane.showMessageDialog(null,"Senha alterada com sucesso!","SENHA ALTERADA",JOptionPane.INFORMATION_MESSAGE);
 		                new TelaMenu().setVisible(true);
+		                Pessoa pessoa = new Pessoa();
+		                pessoa.setsenha(senha_nova);
 		                dispose();
 		            }
 		        } else {

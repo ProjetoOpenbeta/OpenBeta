@@ -227,7 +227,8 @@ public class TelaInicial extends JFrame {
 		passwordField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent evt) {
-		        String sen = (passwordField.getText()); 
+		        @SuppressWarnings("deprecation")
+				String sen = (passwordField.getText()); 
 		        String cpf = (textFieldCPF.getText()); 
 		        
 		        switch (evt.getKeyCode()) {
@@ -333,6 +334,7 @@ public class TelaInicial extends JFrame {
 		});
 		
 		btnAcessar.addKeyListener(new KeyAdapter() {
+			@SuppressWarnings("deprecation")
 			@Override
 			public void keyPressed(KeyEvent evt) {
 		        if (evt.getKeyCode() == 10) {
