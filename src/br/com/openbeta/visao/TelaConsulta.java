@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.openbeta.controle.EAO;
+import br.com.openbeta.controle.JDBC;
 import br.com.openbeta.modelo.Atividade;
 import br.com.openbeta.modelo.Cargo;
 import br.com.openbeta.modelo.Contratacao;
@@ -60,6 +62,7 @@ import br.com.openbeta.utilitarios.Md5;
 import br.com.openbeta.utilitarios.ValidaCPF;
 
 import javax.swing.JRadioButton;
+
 import java.awt.Font;
 import java.awt.Window.Type;
 import java.awt.event.KeyAdapter;
@@ -144,14 +147,31 @@ public class TelaConsulta extends JFrame {
 		jBPesquisar = new JButton("Pesquisar");
 		jBPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				switch (tipoPesq1){
+				JDBC j = new JDBC();
+				Pessoa p = new Pessoa();
+				p.setid_pessoa(Integer.valueOf(txtCodigo.getText()));
+				
+				try {
+					j.consultaRegistros(p, tipoPesq1, jTableConsulta);
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/*switch (tipoPesq1){
 					case 1:
-						
+						switch (tipoPesq2){
+							case 1:
+								
+							case 2:
+								
+							default:
+								
+						}
 					case 2:
 						
 					default:
 						JOptionPane.showMessageDialog(null, "Pesquisa inválida por favor insira ou o código ou o nome do registro!");
-				}
+				}*/
 			}
 		});
 		jBPesquisar.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -382,17 +402,25 @@ public class TelaConsulta extends JFrame {
 		gbc_scrollPane.gridy = 0;
 		panel_3.add(scrollPane, gbc_scrollPane);
 		
-		jTableConsulta = new JTable();
+		jTableConsulta = new JTable(){
+			private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int rowIndex, int vColIndex){
+				return false;
+			}
+		};
 		jTableConsulta.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTableConsulta.setModel(new DefaultTableModel(
 			new Object[][] {
+				{null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"C\u00F3digo", "Nome", "CPF", "Telefone 1", "Telefone 2", "Outros", "Tipo de gradua\u00E7\u00E3o", "Institui\u00E7\u00E3o/Curso", "Data de conclus\u00E3o"
+				"C\u00F3digo", "Nome", "CPF", "Telefone 1", "Telefone 2", "Outros", "Tipo de gradua\u00E7\u00E3o"
 			}
 		));
 		jTableConsulta.getColumnModel().getColumn(0).setPreferredWidth(49);
 		jTableConsulta.getColumnModel().getColumn(1).setPreferredWidth(184);
+		jTableConsulta.getColumnModel().getColumn(6).setPreferredWidth(115);
 		scrollPane.setViewportView(jTableConsulta);
 		
 		/////////////////////////////////////////////////////

@@ -242,7 +242,7 @@ public class TelaInicial extends JFrame {
 		                lblNotificacao.setText("* Informe a Senha");
 		                passwordField.requestFocus();
 		            } else {
-		                btnAcessar.requestFocus();
+		                btnAcessar.doClick();
 		            }		
 					break;
 		        }

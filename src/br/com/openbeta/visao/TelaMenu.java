@@ -24,6 +24,7 @@
 package br.com.openbeta.visao;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -41,6 +42,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
 
 public class TelaMenu extends JFrame {
 
@@ -67,26 +73,33 @@ public class TelaMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaMenu() {
-		setType(Type.UTILITY);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\colegio.jpg"));
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 150, 600);
-		setMinimumSize(new Dimension(150, 600));
+		setBounds(0, 0, 132, 693);
+		setMinimumSize(new Dimension(15, 600));
 		contentPane = new JPanel();
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				new TelaConsulta().setVisible(true);
+			}
+		});
 		contentPane.setBackground(new Color(0, 0, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0};
+		gbl_contentPane.columnWidths = new int[]{72, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JLabel lblTitulo = new JLabel("OpenBeta");
-		lblTitulo.setFont(new Font("Segoe Script", Font.BOLD | Font.ITALIC, 22));
+		lblTitulo.setFont(new Font("Segoe Script", Font.BOLD | Font.ITALIC, 20));
 		lblTitulo.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblTitulo = new GridBagConstraints();
-		gbc_lblTitulo.insets = new Insets(10, 5, 5, 5);
+		gbc_lblTitulo.insets = new Insets(10, 5, 5, 0);
 		gbc_lblTitulo.gridx = 0;
 		gbc_lblTitulo.gridy = 0;
 		contentPane.add(lblTitulo, gbc_lblTitulo);
@@ -111,52 +124,56 @@ public class TelaMenu extends JFrame {
 		gbc_panel_1.gridy = 2;
 		contentPane.add(panel_1, gbc_panel_1);
 		
-		JButton btnIncluir = new JButton("Incluir");
-		btnIncluir.setFont(new Font("Arial", Font.PLAIN, 11));
+		JLabel btnIncluir = new JLabel("");
+		btnIncluir.setToolTipText("Incluir registro!");
+		int handCursor = extracted();
+		btnIncluir.setCursor(new Cursor(handCursor));
+		btnIncluir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				new TelaCadastro().setVisible(true);
+			}
+		});
+		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\inclusao.png"));
 		GridBagConstraints gbc_btnIncluir = new GridBagConstraints();
 		gbc_btnIncluir.insets = new Insets(0, 0, 5, 0);
-		gbc_btnIncluir.fill = GridBagConstraints.BOTH;
 		gbc_btnIncluir.gridx = 0;
 		gbc_btnIncluir.gridy = 3;
 		contentPane.add(btnIncluir, gbc_btnIncluir);
 		
-		btnIncluir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new TelaCadastro().setVisible(true);
+		JLabel btnConsultar = new JLabel("");
+		btnConsultar.setToolTipText("Consultar registro!");
+		btnConsultar.setCursor(new Cursor(handCursor));
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				new TelaConsulta().setVisible(true);
 			}
 		});
-		
-		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setFont(new Font("Arial", Font.PLAIN, 11));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\consultar.png"));
 		GridBagConstraints gbc_btnConsultar = new GridBagConstraints();
 		gbc_btnConsultar.insets = new Insets(0, 0, 5, 0);
-		gbc_btnConsultar.fill = GridBagConstraints.BOTH;
 		gbc_btnConsultar.gridx = 0;
 		gbc_btnConsultar.gridy = 4;
 		contentPane.add(btnConsultar, gbc_btnConsultar);
 		
-		btnConsultar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new TelaConsulta().setVisible(true);
-			}
-		});
-
-		JButton btnRelatorios = new JButton("Relat\u00F3rios");
-		btnRelatorios.setFont(new Font("Arial", Font.PLAIN, 11));
-		GridBagConstraints gbc_btnRelatorios = new GridBagConstraints();
-		gbc_btnRelatorios.insets = new Insets(0, 0, 5, 0);
-		gbc_btnRelatorios.fill = GridBagConstraints.BOTH;
-		gbc_btnRelatorios.gridx = 0;
-		gbc_btnRelatorios.gridy = 5;
-		contentPane.add(btnRelatorios, gbc_btnRelatorios);
-
-		btnRelatorios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel btnRelatorio = new JLabel("");
+		btnRelatorio.setToolTipText("Acessar relatórios!");
+		btnRelatorio.setCursor(new Cursor(handCursor));
+		btnRelatorio.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
 				try {
 		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://localhost/openbeta/site/site02");
 		        } catch (IOException a) {}
 			}
 		});
+		btnRelatorio.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\relatorio.png"));
+		GridBagConstraints gbc_btnRelatorio = new GridBagConstraints();
+		gbc_btnRelatorio.insets = new Insets(0, 0, 5, 0);
+		gbc_btnRelatorio.gridx = 0;
+		gbc_btnRelatorio.gridy = 5;
+		contentPane.add(btnRelatorio, gbc_btnRelatorio);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(0, 0, 51));
@@ -169,38 +186,43 @@ public class TelaMenu extends JFrame {
 		contentPane.add(panel_2, gbc_panel_2);
 		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 		
-		JButton btnAlterarSenha = new JButton("Alterar Senha");
-		btnAlterarSenha.setFont(new Font("Arial", Font.PLAIN, 11));
-		GridBagConstraints gbc_btnAlterarSenha = new GridBagConstraints();
-		gbc_btnAlterarSenha.insets = new Insets(0, 0, 5, 0);
-		gbc_btnAlterarSenha.fill = GridBagConstraints.BOTH;
-		gbc_btnAlterarSenha.gridx = 0;
-		gbc_btnAlterarSenha.gridy = 7;
-		contentPane.add(btnAlterarSenha, gbc_btnAlterarSenha);
-		
-		btnAlterarSenha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel btnTrocaSenha = new JLabel("");
+		btnTrocaSenha.setToolTipText("Trocar senha!");
+		btnTrocaSenha.setCursor(new Cursor(handCursor));
+		btnTrocaSenha.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
 				new TelaAlteracaoSenha().setVisible(true);
-				dispose();
 			}
 		});
-
-		JButton btnSair = new JButton("SAIR");
-		btnSair.setFont(new Font("Arial", Font.PLAIN, 11));
-		btnSair.setForeground(Color.RED);
+		btnTrocaSenha.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\trocasenha.png"));
+		GridBagConstraints gbc_btnTrocaSenha = new GridBagConstraints();
+		gbc_btnTrocaSenha.insets = new Insets(0, 0, 5, 0);
+		gbc_btnTrocaSenha.gridx = 0;
+		gbc_btnTrocaSenha.gridy = 7;
+		contentPane.add(btnTrocaSenha, gbc_btnTrocaSenha);
+		
+		JLabel btnSair = new JLabel("");
+		btnSair.setToolTipText("Sair!");
+		btnSair.setCursor(new Cursor(handCursor));
+		btnSair.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Object con[] = new Object[]{"Sim", "Não"};
+				int r = JOptionPane.showOptionDialog(null, "Realmente deseja sair?", "Confirme!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, con, null);
+				if(r==0){
+					dispose();
+				}
+			}
+		});
+		btnSair.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\saindo.png"));
 		GridBagConstraints gbc_btnSair = new GridBagConstraints();
-		gbc_btnSair.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSair.gridx = 0;
 		gbc_btnSair.gridy = 8;
 		contentPane.add(btnSair, gbc_btnSair);
+	}
 
-		btnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int resp = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "OpenBeta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-		        if (resp == 0) {
-		            System.exit(0);
-		        }
-			}
-		});
+	private int extracted() {
+		return HAND_CURSOR;
 	}
 }

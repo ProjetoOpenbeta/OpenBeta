@@ -57,6 +57,7 @@ import br.com.openbeta.renderers.FuncoesTableModel2;
 import br.com.openbeta.renderers.GraduacoesTableModel2;
 import br.com.openbeta.utilitarios.Md5;
 import br.com.openbeta.utilitarios.ValidaCPF;
+import java.awt.Font;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class TelaCadastro extends JFrame {
@@ -165,6 +166,7 @@ public class TelaCadastro extends JFrame {
 		panel.setLayout(gbl_panel);
 		
 		jBGravar = new JButton("Gravar");
+		jBGravar.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBGravar = new GridBagConstraints();
 		gbc_jBGravar.fill = GridBagConstraints.BOTH;
 		gbc_jBGravar.insets = new Insets(25, 10, 5, 10);
@@ -173,6 +175,7 @@ public class TelaCadastro extends JFrame {
 		panel.add(jBGravar, gbc_jBGravar);
 		
 		jBLimpar = new JButton("Limpar");
+		jBLimpar.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBLimpar = new GridBagConstraints();
 		gbc_jBLimpar.fill = GridBagConstraints.BOTH;
 		gbc_jBLimpar.insets = new Insets(0, 10, 5, 10);
@@ -181,6 +184,7 @@ public class TelaCadastro extends JFrame {
 		panel.add(jBLimpar, gbc_jBLimpar);
 		
 		jBFechar = new JButton("Fechar");
+		jBFechar.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBFechar = new GridBagConstraints();
 		gbc_jBFechar.fill = GridBagConstraints.BOTH;
 		gbc_jBFechar.insets = new Insets(0, 10, 5, 10);
@@ -189,6 +193,7 @@ public class TelaCadastro extends JFrame {
 		panel.add(jBFechar, gbc_jBFechar);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
 		gbc_tabbedPane.fill = GridBagConstraints.BOTH;
 		gbc_tabbedPane.gridx = 1;
@@ -220,6 +225,7 @@ public class TelaCadastro extends JFrame {
 		linha_0.setLayout(gbl_linha_0);
 		
 		JLabel lblNewLabel = new JLabel("* C\u00F3digo:");
+		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -228,6 +234,7 @@ public class TelaCadastro extends JFrame {
 		linha_0.add(lblNewLabel, gbc_lblNewLabel);
 		
 		jTCodigo = new JTextField();
+		jTCodigo.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jTCodigo = new GridBagConstraints();
 		gbc_jTCodigo.insets = new Insets(0, 0, 5, 5);
 		gbc_jTCodigo.fill = GridBagConstraints.BOTH;
@@ -237,6 +244,7 @@ public class TelaCadastro extends JFrame {
 		jTCodigo.setColumns(10);
 		
 		JLabel lblContratao = new JLabel("* Contrata\u00E7\u00E3o");
+		lblContratao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblContratao = new GridBagConstraints();
 		gbc_lblContratao.anchor = GridBagConstraints.EAST;
 		gbc_lblContratao.insets = new Insets(0, 0, 5, 5);
@@ -245,6 +253,7 @@ public class TelaCadastro extends JFrame {
 		linha_0.add(lblContratao, gbc_lblContratao);
 		
 		jComboBoxContratacao = new JComboBox();
+		jComboBoxContratacao.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxContratacao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ESTADO", "PSS"}));
 		GridBagConstraints gbc_jComboBoxContratacao = new GridBagConstraints();
 		gbc_jComboBoxContratacao.insets = new Insets(0, 0, 5, 5);
@@ -254,6 +263,7 @@ public class TelaCadastro extends JFrame {
 		linha_0.add(jComboBoxContratacao, gbc_jComboBoxContratacao);
 		
 		JLabel lblSituao = new JLabel("* Situa\u00E7\u00E3o");
+		lblSituao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblSituao = new GridBagConstraints();
 		gbc_lblSituao.anchor = GridBagConstraints.EAST;
 		gbc_lblSituao.insets = new Insets(0, 0, 5, 5);
@@ -262,6 +272,7 @@ public class TelaCadastro extends JFrame {
 		linha_0.add(lblSituao, gbc_lblSituao);
 		
 		jComboBoxSituacao = new JComboBox();
+		jComboBoxSituacao.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxSituacao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "EM EXERC\u00CDCIO", "READAPTADO", "AFASTADO DA FUN\u00C7\u00C3O", "LICEN\u00C7A M\u00C9DICA", "LICEN\u00C7A PR\u00CAMIO"}));
 		GridBagConstraints gbc_jComboBoxSituacao = new GridBagConstraints();
 		gbc_jComboBoxSituacao.insets = new Insets(0, 0, 5, 0);
@@ -285,6 +296,7 @@ public class TelaCadastro extends JFrame {
 		linha_1.setLayout(gbl_linha_1);
 		
 		JLabel lblNome = new JLabel("* Nome:");
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblNome = new GridBagConstraints();
 		gbc_lblNome.anchor = GridBagConstraints.EAST;
 		gbc_lblNome.insets = new Insets(0, 10, 5, 4);
@@ -293,6 +305,7 @@ public class TelaCadastro extends JFrame {
 		linha_1.add(lblNome, gbc_lblNome);
 		
 		jTNome = new JTextField();
+		jTNome.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTNome.setColumns(10);
 		GridBagConstraints gbc_jTNome = new GridBagConstraints();
 		gbc_jTNome.weighty = 1.1;
@@ -317,6 +330,7 @@ public class TelaCadastro extends JFrame {
 		linha_2.setLayout(gbl_linha_2);
 		
 		JLabel lblNomeMe = new JLabel("* Nome M\u00E3e:");
+		lblNomeMe.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblNomeMe = new GridBagConstraints();
 		gbc_lblNomeMe.anchor = GridBagConstraints.EAST;
 		gbc_lblNomeMe.insets = new Insets(0, 10, 5, 5);
@@ -325,6 +339,7 @@ public class TelaCadastro extends JFrame {
 		linha_2.add(lblNomeMe, gbc_lblNomeMe);
 		
 		jTNomeMae = new JTextField();
+		jTNomeMae.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTNomeMae.setColumns(10);
 		GridBagConstraints gbc_jTNomeMae = new GridBagConstraints();
 		gbc_jTNomeMae.weighty = 1.1;
@@ -349,6 +364,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.setLayout(gbl_linha_3);
 		
 		JLabel lblCpf = new JLabel("* CPF:");
+		lblCpf.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblCpf = new GridBagConstraints();
 		gbc_lblCpf.anchor = GridBagConstraints.EAST;
 		gbc_lblCpf.insets = new Insets(0, 38, 5, 6);
@@ -357,6 +373,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(lblCpf, gbc_lblCpf);
 		
 		jTCPF = new JTextField();
+		jTCPF.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTCPF.setColumns(10);
 		GridBagConstraints gbc_jTCPF = new GridBagConstraints();
 		gbc_jTCPF.fill = GridBagConstraints.BOTH;
@@ -366,6 +383,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(jTCPF, gbc_jTCPF);
 		
 		JLabel lblRg = new JLabel("* RG:");
+		lblRg.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblRg = new GridBagConstraints();
 		gbc_lblRg.anchor = GridBagConstraints.EAST;
 		gbc_lblRg.insets = new Insets(0, 0, 5, 5);
@@ -374,6 +392,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(lblRg, gbc_lblRg);
 		
 		jTRG = new JTextField();
+		jTRG.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTRG.setColumns(10);
 		GridBagConstraints gbc_jTRG = new GridBagConstraints();
 		gbc_jTRG.insets = new Insets(0, 0, 5, 5);
@@ -383,6 +402,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(jTRG, gbc_jTRG);
 		
 		JLabel lblEstadoCivil = new JLabel("* Estado Civil:");
+		lblEstadoCivil.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblEstadoCivil = new GridBagConstraints();
 		gbc_lblEstadoCivil.anchor = GridBagConstraints.EAST;
 		gbc_lblEstadoCivil.insets = new Insets(0, 0, 5, 5);
@@ -391,6 +411,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(lblEstadoCivil, gbc_lblEstadoCivil);
 		
 		jComboBoxEstadoCivil = new JComboBox();
+		jComboBoxEstadoCivil.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "SOLTEIRO", "CASADO", "DIVORCIADO", "VI\u00DAVO"}));
 		GridBagConstraints gbc_jComboBoxEstadoCivil = new GridBagConstraints();
 		gbc_jComboBoxEstadoCivil.fill = GridBagConstraints.HORIZONTAL;
@@ -400,6 +421,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(jComboBoxEstadoCivil, gbc_jComboBoxEstadoCivil);
 		
 		JLabel lblSexo = new JLabel("* Sexo:");
+		lblSexo.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblSexo = new GridBagConstraints();
 		gbc_lblSexo.anchor = GridBagConstraints.EAST;
 		gbc_lblSexo.insets = new Insets(0, 0, 5, 5);
@@ -408,6 +430,7 @@ public class TelaCadastro extends JFrame {
 		linha_3.add(lblSexo, gbc_lblSexo);
 		
 		jComboBoxSexo = new JComboBox();
+		jComboBoxSexo.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "MASCULINO", "FEMININO"}));
 		GridBagConstraints gbc_jComboBoxSexo = new GridBagConstraints();
 		gbc_jComboBoxSexo.insets = new Insets(0, 0, 5, 10);
@@ -431,6 +454,7 @@ public class TelaCadastro extends JFrame {
 		linha_4.setLayout(gbl_linha_4);
 		
 		JLabel lblSenha = new JLabel("* Senha:");
+		lblSenha.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblSenha = new GridBagConstraints();
 		gbc_lblSenha.anchor = GridBagConstraints.EAST;
 		gbc_lblSenha.insets = new Insets(0, 10, 5, 5);
@@ -439,6 +463,7 @@ public class TelaCadastro extends JFrame {
 		linha_4.add(lblSenha, gbc_lblSenha);
 		
 		jTSenha = new JTextField();
+		jTSenha.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTSenha.setColumns(10);
 		GridBagConstraints gbc_jTSenha = new GridBagConstraints();
 		gbc_jTSenha.weighty = 1.1;
@@ -464,6 +489,7 @@ public class TelaCadastro extends JFrame {
 		linha_5.setLayout(gbl_linha_5);
 		
 		JLabel lblCidade = new JLabel("* Cidade:");
+		lblCidade.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblCidade = new GridBagConstraints();
 		gbc_lblCidade.anchor = GridBagConstraints.EAST;
 		gbc_lblCidade.insets = new Insets(0, 18, 5, 5);
@@ -472,6 +498,7 @@ public class TelaCadastro extends JFrame {
 		linha_5.add(lblCidade, gbc_lblCidade);
 		
 		jTCidadeNatal = new JTextField();
+		jTCidadeNatal.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTCidadeNatal.setColumns(10);
 		GridBagConstraints gbc_jTCidadeNatal = new GridBagConstraints();
 		gbc_jTCidadeNatal.fill = GridBagConstraints.BOTH;
@@ -481,6 +508,7 @@ public class TelaCadastro extends JFrame {
 		linha_5.add(jTCidadeNatal, gbc_jTCidadeNatal);
 		
 		JLabel lblUf = new JLabel("* UF:");
+		lblUf.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblUf = new GridBagConstraints();
 		gbc_lblUf.anchor = GridBagConstraints.EAST;
 		gbc_lblUf.insets = new Insets(0, 10, 5, 5);
@@ -489,6 +517,7 @@ public class TelaCadastro extends JFrame {
 		linha_5.add(lblUf, gbc_lblUf);
 		
 		jComboBoxUFNatal = new JComboBox();
+		jComboBoxUFNatal.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxUFNatal.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO"}));
 		GridBagConstraints gbc_jComboBoxUFNatal = new GridBagConstraints();
 		gbc_jComboBoxUFNatal.fill = GridBagConstraints.HORIZONTAL;
@@ -498,6 +527,7 @@ public class TelaCadastro extends JFrame {
 		linha_5.add(jComboBoxUFNatal, gbc_jComboBoxUFNatal);
 		
 		JLabel lblDataDe = new JLabel("* Data de Nascimento:");
+		lblDataDe.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblDataDe = new GridBagConstraints();
 		gbc_lblDataDe.anchor = GridBagConstraints.EAST;
 		gbc_lblDataDe.insets = new Insets(0, 10, 5, 5);
@@ -506,6 +536,7 @@ public class TelaCadastro extends JFrame {
 		linha_5.add(lblDataDe, gbc_lblDataDe);
 		
 		jTDataNascimento = new JTextField();
+		jTDataNascimento.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTDataNascimento.setColumns(10);
 		GridBagConstraints gbc_jTDataNascimento = new GridBagConstraints();
 		gbc_jTDataNascimento.insets = new Insets(0, 0, 5, 0);
@@ -530,6 +561,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.setLayout(gbl_linha_6);
 		
 		JLabel lblLogradouro = new JLabel("* Logradouro:");
+		lblLogradouro.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblLogradouro = new GridBagConstraints();
 		gbc_lblLogradouro.anchor = GridBagConstraints.EAST;
 		gbc_lblLogradouro.insets = new Insets(0, 0, 5, 5);
@@ -538,6 +570,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(lblLogradouro, gbc_lblLogradouro);
 		
 		jTEnderecoLogradouro = new JTextField();
+		jTEnderecoLogradouro.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEnderecoLogradouro.setColumns(10);
 		GridBagConstraints gbc_jTEnderecoLogradouro = new GridBagConstraints();
 		gbc_jTEnderecoLogradouro.fill = GridBagConstraints.BOTH;
@@ -547,6 +580,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(jTEnderecoLogradouro, gbc_jTEnderecoLogradouro);
 		
 		JLabel lblEndereo = new JLabel("* Endere\u00E7o:");
+		lblEndereo.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblEndereo = new GridBagConstraints();
 		gbc_lblEndereo.anchor = GridBagConstraints.EAST;
 		gbc_lblEndereo.insets = new Insets(0, 10, 5, 5);
@@ -555,6 +589,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(lblEndereo, gbc_lblEndereo);
 		
 		jTEnderecoRua = new JTextField();
+		jTEnderecoRua.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEnderecoRua.setColumns(10);
 		GridBagConstraints gbc_jTEnderecoRua = new GridBagConstraints();
 		gbc_jTEnderecoRua.insets = new Insets(0, 0, 5, 5);
@@ -564,6 +599,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(jTEnderecoRua, gbc_jTEnderecoRua);
 		
 		JLabel lblNmero = new JLabel("* N\u00FAmero:");
+		lblNmero.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblNmero = new GridBagConstraints();
 		gbc_lblNmero.anchor = GridBagConstraints.EAST;
 		gbc_lblNmero.insets = new Insets(0, 10, 5, 5);
@@ -572,6 +608,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(lblNmero, gbc_lblNmero);
 		
 		jTEnderecoNumero = new JTextField();
+		jTEnderecoNumero.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEnderecoNumero.setColumns(10);
 		GridBagConstraints gbc_jTEnderecoNumero = new GridBagConstraints();
 		gbc_jTEnderecoNumero.fill = GridBagConstraints.HORIZONTAL;
@@ -581,6 +618,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(jTEnderecoNumero, gbc_jTEnderecoNumero);
 		
 		JLabel lblCidade_1 = new JLabel("* Cidade:");
+		lblCidade_1.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblCidade_1 = new GridBagConstraints();
 		gbc_lblCidade_1.anchor = GridBagConstraints.EAST;
 		gbc_lblCidade_1.insets = new Insets(0, 0, 5, 5);
@@ -589,6 +627,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(lblCidade_1, gbc_lblCidade_1);
 		
 		jTEnderecoCidade = new JTextField();
+		jTEnderecoCidade.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEnderecoCidade.setColumns(10);
 		GridBagConstraints gbc_jTEnderecoCidade = new GridBagConstraints();
 		gbc_jTEnderecoCidade.gridwidth = 3;
@@ -599,6 +638,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(jTEnderecoCidade, gbc_jTEnderecoCidade);
 		
 		JLabel label = new JLabel("* UF:");
+		label.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_label = new GridBagConstraints();
 		gbc_label.insets = new Insets(0, 0, 5, 5);
 		gbc_label.anchor = GridBagConstraints.EAST;
@@ -607,6 +647,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(label, gbc_label);
 		
 		jComboBoxUFEndereco = new JComboBox();
+		jComboBoxUFEndereco.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxUFEndereco.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO"}));
 		GridBagConstraints gbc_jComboBoxUFEndereco = new GridBagConstraints();
 		gbc_jComboBoxUFEndereco.insets = new Insets(0, 0, 5, 0);
@@ -616,6 +657,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(jComboBoxUFEndereco, gbc_jComboBoxUFEndereco);
 		
 		JLabel lblBairro = new JLabel("* Bairro:");
+		lblBairro.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblBairro = new GridBagConstraints();
 		gbc_lblBairro.anchor = GridBagConstraints.EAST;
 		gbc_lblBairro.insets = new Insets(0, 0, 5, 5);
@@ -624,6 +666,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(lblBairro, gbc_lblBairro);
 		
 		jTEnderecoBairro = new JTextField();
+		jTEnderecoBairro.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEnderecoBairro.setColumns(10);
 		GridBagConstraints gbc_jTEnderecoBairro = new GridBagConstraints();
 		gbc_jTEnderecoBairro.gridwidth = 3;
@@ -634,6 +677,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(jTEnderecoBairro, gbc_jTEnderecoBairro);
 		
 		JLabel lblCep = new JLabel("* CEP:");
+		lblCep.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblCep = new GridBagConstraints();
 		gbc_lblCep.anchor = GridBagConstraints.EAST;
 		gbc_lblCep.insets = new Insets(0, 0, 5, 5);
@@ -642,6 +686,7 @@ public class TelaCadastro extends JFrame {
 		linha_6.add(lblCep, gbc_lblCep);
 		
 		jTEnderecoCEP = new JTextField();
+		jTEnderecoCEP.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEnderecoCEP.setColumns(10);
 		GridBagConstraints gbc_jTEnderecoCEP = new GridBagConstraints();
 		gbc_jTEnderecoCEP.insets = new Insets(0, 0, 5, 0);
@@ -665,6 +710,7 @@ public class TelaCadastro extends JFrame {
 		linha_7.setLayout(gbl_linha_7);
 		
 		JLabel lblTelResidencial = new JLabel("Tel Residencial:");
+		lblTelResidencial.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblTelResidencial = new GridBagConstraints();
 		gbc_lblTelResidencial.anchor = GridBagConstraints.EAST;
 		gbc_lblTelResidencial.insets = new Insets(0, 10, 5, 5);
@@ -673,6 +719,7 @@ public class TelaCadastro extends JFrame {
 		linha_7.add(lblTelResidencial, gbc_lblTelResidencial);
 		
 		jTTelefoneResidencial = new JTextField();
+		jTTelefoneResidencial.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTTelefoneResidencial.setColumns(10);
 		GridBagConstraints gbc_jTTelefoneResidencial = new GridBagConstraints();
 		gbc_jTTelefoneResidencial.weighty = 1.1;
@@ -697,6 +744,7 @@ public class TelaCadastro extends JFrame {
 		linha_8.setLayout(gbl_linha_8);
 		
 		JLabel lblTelCelular = new JLabel("* Tel Celular:");
+		lblTelCelular.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblTelCelular = new GridBagConstraints();
 		gbc_lblTelCelular.anchor = GridBagConstraints.EAST;
 		gbc_lblTelCelular.insets = new Insets(0, 21, 5, 5);
@@ -705,6 +753,7 @@ public class TelaCadastro extends JFrame {
 		linha_8.add(lblTelCelular, gbc_lblTelCelular);
 		
 		jTCelular1 = new JTextField();
+		jTCelular1.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTCelular1.setColumns(10);
 		GridBagConstraints gbc_jTCelular1 = new GridBagConstraints();
 		gbc_jTCelular1.weighty = 1.1;
@@ -715,6 +764,7 @@ public class TelaCadastro extends JFrame {
 		linha_8.add(jTCelular1, gbc_jTCelular1);
 		
 		JLabel lblCelularOpcional = new JLabel("Celular Opcional:");
+		lblCelularOpcional.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblCelularOpcional = new GridBagConstraints();
 		gbc_lblCelularOpcional.anchor = GridBagConstraints.EAST;
 		gbc_lblCelularOpcional.insets = new Insets(0, 0, 5, 5);
@@ -723,6 +773,7 @@ public class TelaCadastro extends JFrame {
 		linha_8.add(lblCelularOpcional, gbc_lblCelularOpcional);
 		
 		jTCelular2 = new JTextField();
+		jTCelular2.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTCelular2.setColumns(10);
 		GridBagConstraints gbc_jTCelular2 = new GridBagConstraints();
 		gbc_jTCelular2.insets = new Insets(0, 0, 5, 10);
@@ -746,6 +797,7 @@ public class TelaCadastro extends JFrame {
 		linha_9.setLayout(gbl_linha_9);
 		
 		JLabel lblEmail = new JLabel("* E-Mail:");
+		lblEmail.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblEmail = new GridBagConstraints();
 		gbc_lblEmail.anchor = GridBagConstraints.EAST;
 		gbc_lblEmail.insets = new Insets(0, 40, 5, 5);
@@ -754,6 +806,7 @@ public class TelaCadastro extends JFrame {
 		linha_9.add(lblEmail, gbc_lblEmail);
 		
 		jTEmail1 = new JTextField();
+		jTEmail1.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEmail1.setColumns(10);
 		GridBagConstraints gbc_jTEmail1 = new GridBagConstraints();
 		gbc_jTEmail1.weighty = 1.1;
@@ -778,6 +831,7 @@ public class TelaCadastro extends JFrame {
 		linha_10.setLayout(gbl_linha_10);
 		
 		JLabel lblEmailOpcional = new JLabel("E-Mail Opcional:");
+		lblEmailOpcional.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblEmailOpcional = new GridBagConstraints();
 		gbc_lblEmailOpcional.anchor = GridBagConstraints.EAST;
 		gbc_lblEmailOpcional.insets = new Insets(0, 5, 5, 5);
@@ -786,6 +840,7 @@ public class TelaCadastro extends JFrame {
 		linha_10.add(lblEmailOpcional, gbc_lblEmailOpcional);
 		
 		jTEmail2 = new JTextField();
+		jTEmail2.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTEmail2.setColumns(10);
 		GridBagConstraints gbc_jTEmail2 = new GridBagConstraints();
 		gbc_jTEmail2.weighty = 1.1;
@@ -809,6 +864,7 @@ public class TelaCadastro extends JFrame {
 		linha_11.setLayout(gbl_linha_11);
 		
 		JLabel lblExtras = new JLabel("Extras:");
+		lblExtras.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblExtras = new GridBagConstraints();
 		gbc_lblExtras.anchor = GridBagConstraints.EAST;
 		gbc_lblExtras.insets = new Insets(0, 5, 5, 5);
@@ -825,6 +881,7 @@ public class TelaCadastro extends JFrame {
 		linha_11.add(scrollPane_1, gbc_scrollPane_1);
 		
 		jTExtras = new JTextPane();
+		jTExtras.setFont(new Font("Arial", Font.PLAIN, 11));
 		scrollPane_1.setViewportView(jTExtras);
 		
 		JLabel lblCamposDe = new JLabel("* Campos de Preenchimento Obrigat\u00F3rio    ");
@@ -860,6 +917,7 @@ public class TelaCadastro extends JFrame {
 		panel_0.setLayout(gbl_panel_0);
 		
 		JLabel lblGraduao = new JLabel("* Gradua\u00E7\u00E3o:");
+		lblGraduao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblGraduao = new GridBagConstraints();
 		gbc_lblGraduao.insets = new Insets(0, 30, 0, 5);
 		gbc_lblGraduao.anchor = GridBagConstraints.EAST;
@@ -868,6 +926,7 @@ public class TelaCadastro extends JFrame {
 		panel_0.add(lblGraduao, gbc_lblGraduao);
 		
 		jComboBoxGraduacao = new JComboBox();
+		jComboBoxGraduacao.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxGraduacao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "BACHARELADO", "LICENCIATURA", "TECN\u00D3LOGO", "P\u00D3S-GRADUA\u00C7\u00C3O", "MESTRADO", "DOUTORADO"}));
 		GridBagConstraints gbc_jComboBoxGraduacao = new GridBagConstraints();
 		gbc_jComboBoxGraduacao.insets = new Insets(0, 0, 0, 5);
@@ -877,6 +936,7 @@ public class TelaCadastro extends JFrame {
 		panel_0.add(jComboBoxGraduacao, gbc_jComboBoxGraduacao);
 		
 		JLabel lblDataDe_1 = new JLabel("* Data de Conclus\u00E3o:");
+		lblDataDe_1.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblDataDe_1 = new GridBagConstraints();
 		gbc_lblDataDe_1.insets = new Insets(0, 0, 0, 5);
 		gbc_lblDataDe_1.anchor = GridBagConstraints.EAST;
@@ -885,6 +945,7 @@ public class TelaCadastro extends JFrame {
 		panel_0.add(lblDataDe_1, gbc_lblDataDe_1);
 		
 		jTDataConclusaoGraduacao = new JTextField();
+		jTDataConclusaoGraduacao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jTDataConclusaoGraduacao = new GridBagConstraints();
 		gbc_jTDataConclusaoGraduacao.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jTDataConclusaoGraduacao.gridx = 3;
@@ -907,6 +968,7 @@ public class TelaCadastro extends JFrame {
 		panel_1.setLayout(gbl_panel_1);
 		
 		JLabel lblInstituiocurso = new JLabel("* Institui\u00E7\u00E3o/Curso:");
+		lblInstituiocurso.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblInstituiocurso = new GridBagConstraints();
 		gbc_lblInstituiocurso.anchor = GridBagConstraints.EAST;
 		gbc_lblInstituiocurso.insets = new Insets(0, 0, 0, 5);
@@ -915,6 +977,7 @@ public class TelaCadastro extends JFrame {
 		panel_1.add(lblInstituiocurso, gbc_lblInstituiocurso);
 		
 		jTNomeInstituicao1 = new JTextField();
+		jTNomeInstituicao1.setFont(new Font("Arial", Font.PLAIN, 11));
 		jTNomeInstituicao1.setColumns(10);
 		GridBagConstraints gbc_jTNomeInstituicao1 = new GridBagConstraints();
 		gbc_jTNomeInstituicao1.fill = GridBagConstraints.HORIZONTAL;
@@ -937,6 +1000,7 @@ public class TelaCadastro extends JFrame {
 		panel_2.setLayout(gbl_panel_2);
 		
 		jBAdicionarGraduacao = new JButton("Adicionar");
+		jBAdicionarGraduacao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBAdicionarGraduacao = new GridBagConstraints();
 		gbc_jBAdicionarGraduacao.fill = GridBagConstraints.BOTH;
 		gbc_jBAdicionarGraduacao.insets = new Insets(10, 10, 5, 440);
@@ -969,11 +1033,19 @@ public class TelaCadastro extends JFrame {
 		jTableGraduacoes = new JTable();
 		jTableGraduacoes.setModel(new DefaultTableModel(
 			new Object[][] {
+				{null, null, null},
 			},
 			new String[] {
-				"Tipo de graduação", "Instituição/Curso", "Data de conclusão"
+				"Tipo de gradua\u00E7\u00E3o", "Institui\u00C3\u00A7\u00C3\u00A3o", "Data de conclus\u00C3\u00A3o"
 			}
-		));
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
 		scrollPane.setViewportView(jTableGraduacoes);
 		
 		JPanel funcoes = new JPanel();
@@ -1001,6 +1073,7 @@ public class TelaCadastro extends JFrame {
 		panel_5.setLayout(gbl_panel_5);
 		
 		JLabel lblFuno = new JLabel("* Fun\u00E7\u00E3o:");
+		lblFuno.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblFuno = new GridBagConstraints();
 		gbc_lblFuno.anchor = GridBagConstraints.EAST;
 		gbc_lblFuno.insets = new Insets(0, 30, 0, 5);
@@ -1009,6 +1082,7 @@ public class TelaCadastro extends JFrame {
 		panel_5.add(lblFuno, gbc_lblFuno);
 		
 		jComboBoxFuncao = new JComboBox();
+		jComboBoxFuncao.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxFuncao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "PROFESSOR", "FUNCION\u00C1RIO", "PEDAGOGIA"}));
 		GridBagConstraints gbc_jComboBoxFuncao = new GridBagConstraints();
 		gbc_jComboBoxFuncao.fill = GridBagConstraints.HORIZONTAL;
@@ -1018,6 +1092,7 @@ public class TelaCadastro extends JFrame {
 		panel_5.add(jComboBoxFuncao, gbc_jComboBoxFuncao);
 		
 		JLabel lblSetorOu = new JLabel("* Setor ou Curso:");
+		lblSetorOu.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblSetorOu = new GridBagConstraints();
 		gbc_lblSetorOu.anchor = GridBagConstraints.EAST;
 		gbc_lblSetorOu.insets = new Insets(0, 0, 0, 5);
@@ -1026,6 +1101,7 @@ public class TelaCadastro extends JFrame {
 		panel_5.add(lblSetorOu, gbc_lblSetorOu);
 		
 		jComboBoxSetor = new JComboBox();
+		jComboBoxSetor.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxSetor.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ENSINO FUNDAMENTAL", "ENSINO M\u00C9DIO", "T\u00C9C. SUBSEQUENTE - ADMINISTRA\u00C7\u00C3O ", "T\u00C9C. SUBSEQUENTE - SECRETARIADO ", "T\u00C9C. SUBSEQUENTE - INFORM\u00C1TICA ", "T\u00C9C. INTEGRAL - ADMINISTRA\u00C7\u00C3O", "T\u00C9C. INTEGRAL - INFORM\u00C1TICA", "CELEM", "SALA DE RECURSOS", "SALA DE APOIO", "ESPORTE E LAZER", "AULAS ESPECIALIZADAS", "ARTE E CULTURA"}));
 		GridBagConstraints gbc_jComboBoxSetor = new GridBagConstraints();
 		gbc_jComboBoxSetor.anchor = GridBagConstraints.EAST;
@@ -1048,6 +1124,7 @@ public class TelaCadastro extends JFrame {
 		panel_6.setLayout(gbl_panel_6);
 		
 		JLabel lblTurno = new JLabel("* Turno:");
+		lblTurno.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblTurno = new GridBagConstraints();
 		gbc_lblTurno.anchor = GridBagConstraints.EAST;
 		gbc_lblTurno.insets = new Insets(0, 36, 0, 5);
@@ -1056,6 +1133,7 @@ public class TelaCadastro extends JFrame {
 		panel_6.add(lblTurno, gbc_lblTurno);
 		
 		jComboBoxTurno = new JComboBox();
+		jComboBoxTurno.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxTurno.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "MATUTINO", "VERPERTINO", "NOTURNO"}));
 		GridBagConstraints gbc_jComboBoxTurno = new GridBagConstraints();
 		gbc_jComboBoxTurno.insets = new Insets(0, 0, 0, 5);
@@ -1065,6 +1143,7 @@ public class TelaCadastro extends JFrame {
 		panel_6.add(jComboBoxTurno, gbc_jComboBoxTurno);
 		
 		JLabel lblSubsetorOu = new JLabel("* Sub-Setor ou Disciplina:");
+		lblSubsetorOu.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_lblSubsetorOu = new GridBagConstraints();
 		gbc_lblSubsetorOu.insets = new Insets(0, 0, 0, 5);
 		gbc_lblSubsetorOu.anchor = GridBagConstraints.EAST;
@@ -1073,6 +1152,7 @@ public class TelaCadastro extends JFrame {
 		panel_6.add(lblSubsetorOu, gbc_lblSubsetorOu);
 		
 		jComboBoxSubSetor = new JComboBox();
+		jComboBoxSubSetor.setFont(new Font("Arial", Font.PLAIN, 11));
 		jComboBoxSubSetor.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ARTE", "CI\u00CANCIAS", "EDUCA\u00C7\u00C3O F\u00CDSICA", "GEOGRAFIA", "HIST\u00D3RIA", "L\u00CDNGUA PORTUGUESA", "MATEM\u00C1TICA", "L.E.M - INGL\u00CAS", "ENSINO RELIGIOSO", "BIOLOGIA", "FILOSOFIA", "F\u00CDSICA", "QU\u00CDMICA", "L.E.M - ESPANHOL", "ADMINISTRA\u00C7\u00C3O DE PROD. E MAT.", "ADM. FINANCEIRA E OR\u00C7AMENT\u00C1RIA", "COMPORTAMENTO ORGANIZACIONAL", "CONTABILIDADE", "ELABORA\u00C7\u00C3O E AN\u00C1LISE PROJETOS", "ESTAT\u00CDSTICA APLICADA", "FUNDAMENTOS DO TRABALHO", "GEST\u00C3O DE PESSOAS", "INFORM\u00C1TICA", "INTRODU\u00C7\u00C3O \u00C0 ECONOMIA", "MARKETING", "MATEM\u00C1TICA FINANCEIRA", "NO\u00C7\u00D5ES DE DIREITO - LEG. TRABALHO", "ORGANIZA\u00C7\u00C3O, SISTEMAS E M\u00C9TODOS", "PR\u00C1TICA DISCURSIVA E LINGUAGEM", "TEORIA GERAL DA ADMINISTRA\u00C7\u00C3O", "ADMINISTRA\u00C7\u00C3O", "CERIMONIAL E PROTOCOLO", "ESPANHOL T\u00C9CNICO", "INGL\u00C3\u0160S T\u00C9CNICO", "INTRODU\u00C7\u00C3O \u00C0S FINAN\u00C7AS", "METODOLOGIA CIENT\u00CDFICA", "NO\u00C7\u00D5ES DE DIR. E LEG. SOC. TRAB.", "PSICOLOGIA ORGANIZACIONAL ", "REDA\u00C7\u00C3O EMPRESARIAL", "T\u00C9CNICAS DE SECRETARIADO", "AN\u00C1LISE DE PROJETOS", "BANCO DE DADOS", "FUND. E ARQUITETURA DE COMPUT.", "INFORM\u00C1TICA INSTRUMENTAL", "INTERNET E PROGRAMA\u00C7\u00C3O WEB", "LINGUAGEM DE PROGRAMA\u00C7\u00C3O", "MATEM\u00C1TICA APLICADA", "REDES E SISTEMAS OPERACIONAIS", "SUPORTE T\u00C9CNICO", "L\u00CDNGUA PORT. E LITERATURA", "ITALIANO - CELEM", "ESPANHOL - CELEM", "FRANC\u00CAS - CELEM", "SALA DE RECURSOS", "SALA DE APOIO", "HORA TREINAMENTO", "FUTSAL E ATLETISMO", "TREINAMENTO ESPORTIVO", "TEATRO"}));
 		GridBagConstraints gbc_jComboBoxSubSetor = new GridBagConstraints();
 		gbc_jComboBoxSubSetor.fill = GridBagConstraints.HORIZONTAL;
@@ -1095,6 +1175,7 @@ public class TelaCadastro extends JFrame {
 		panel_7.setLayout(gbl_panel_7);
 		
 		jBAdicionarFuncao = new JButton("Adicionar");
+		jBAdicionarFuncao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBAdicionarFuncao = new GridBagConstraints();
 		gbc_jBAdicionarFuncao.insets = new Insets(10, 10, 5, 440);
 		gbc_jBAdicionarFuncao.fill = GridBagConstraints.BOTH;
