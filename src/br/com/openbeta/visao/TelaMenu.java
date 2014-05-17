@@ -47,6 +47,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
+import java.awt.Window.Type;
 
 public class TelaMenu extends JFrame {
 
@@ -76,8 +77,7 @@ public class TelaMenu extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\colegio.jpg"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 132, 693);
-		setMinimumSize(new Dimension(15, 600));
+		setBounds(0, 0, 132, 750);
 		contentPane = new JPanel();
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
@@ -89,7 +89,7 @@ public class TelaMenu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{72, 0};
+		gbl_contentPane.columnWidths = new int[]{0, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
@@ -99,6 +99,7 @@ public class TelaMenu extends JFrame {
 		lblTitulo.setFont(new Font("Segoe Script", Font.BOLD | Font.ITALIC, 20));
 		lblTitulo.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblTitulo = new GridBagConstraints();
+		gbc_lblTitulo.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblTitulo.insets = new Insets(10, 5, 5, 0);
 		gbc_lblTitulo.gridx = 0;
 		gbc_lblTitulo.gridy = 0;
@@ -107,9 +108,9 @@ public class TelaMenu extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.RED);
 		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panel.insets = new Insets(0, 0, 5, 0);
 		gbc_panel.anchor = GridBagConstraints.NORTH;
-		gbc_panel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 1;
 		contentPane.add(panel, gbc_panel);
@@ -117,9 +118,9 @@ public class TelaMenu extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panel_1.insets = new Insets(0, 0, 15, 0);
 		gbc_panel_1.anchor = GridBagConstraints.NORTH;
-		gbc_panel_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panel_1.gridx = 0;
 		gbc_panel_1.gridy = 2;
 		contentPane.add(panel_1, gbc_panel_1);
@@ -180,7 +181,7 @@ public class TelaMenu extends JFrame {
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 		gbc_panel_2.weighty = 4.0;
 		gbc_panel_2.insets = new Insets(0, 0, 5, 0);
-		gbc_panel_2.fill = GridBagConstraints.BOTH;
+		gbc_panel_2.fill = GridBagConstraints.VERTICAL;
 		gbc_panel_2.gridx = 0;
 		gbc_panel_2.gridy = 6;
 		contentPane.add(panel_2, gbc_panel_2);
