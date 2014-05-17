@@ -90,9 +90,9 @@ public class TelaMenu extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JLabel lblTitulo = new JLabel("OpenBeta");
@@ -135,7 +135,7 @@ public class TelaMenu extends JFrame {
 				new TelaCadastro().setVisible(true);
 			}
 		});
-		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\inclusao.png"));
+		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\inclusao.png"));
 		GridBagConstraints gbc_btnIncluir = new GridBagConstraints();
 		gbc_btnIncluir.insets = new Insets(0, 0, 5, 0);
 		gbc_btnIncluir.gridx = 0;
@@ -151,7 +151,7 @@ public class TelaMenu extends JFrame {
 				new TelaConsulta().setVisible(true);
 			}
 		});
-		btnConsultar.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\consultar.png"));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\consultar.png"));
 		GridBagConstraints gbc_btnConsultar = new GridBagConstraints();
 		gbc_btnConsultar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnConsultar.gridx = 0;
@@ -169,12 +169,25 @@ public class TelaMenu extends JFrame {
 		        } catch (IOException a) {}
 			}
 		});
-		btnRelatorio.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\relatorio.png"));
+		btnRelatorio.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\relatorio.png"));
 		GridBagConstraints gbc_btnRelatorio = new GridBagConstraints();
 		gbc_btnRelatorio.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRelatorio.gridx = 0;
 		gbc_btnRelatorio.gridy = 5;
 		contentPane.add(btnRelatorio, gbc_btnRelatorio);
+		
+		JButton btnNewButton = new JButton("Teste");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaOpcoes to = new TelaOpcoes();
+				to.setVisible(true);
+			}
+		});
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridy = 6;
+		contentPane.add(btnNewButton, gbc_btnNewButton);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(0, 0, 51));
@@ -183,7 +196,7 @@ public class TelaMenu extends JFrame {
 		gbc_panel_2.insets = new Insets(0, 0, 5, 0);
 		gbc_panel_2.fill = GridBagConstraints.VERTICAL;
 		gbc_panel_2.gridx = 0;
-		gbc_panel_2.gridy = 6;
+		gbc_panel_2.gridy = 7;
 		contentPane.add(panel_2, gbc_panel_2);
 		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 		
@@ -196,11 +209,11 @@ public class TelaMenu extends JFrame {
 				new TelaAlteracaoSenha().setVisible(true);
 			}
 		});
-		btnTrocaSenha.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\trocasenha.png"));
+		btnTrocaSenha.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\trocasenha.png"));
 		GridBagConstraints gbc_btnTrocaSenha = new GridBagConstraints();
 		gbc_btnTrocaSenha.insets = new Insets(0, 0, 5, 0);
 		gbc_btnTrocaSenha.gridx = 0;
-		gbc_btnTrocaSenha.gridy = 7;
+		gbc_btnTrocaSenha.gridy = 8;
 		contentPane.add(btnTrocaSenha, gbc_btnTrocaSenha);
 		
 		JLabel btnSair = new JLabel("");
@@ -216,10 +229,10 @@ public class TelaMenu extends JFrame {
 				}
 			}
 		});
-		btnSair.setIcon(new ImageIcon("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\saindo.png"));
+		btnSair.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\saindo.png"));
 		GridBagConstraints gbc_btnSair = new GridBagConstraints();
 		gbc_btnSair.gridx = 0;
-		gbc_btnSair.gridy = 8;
+		gbc_btnSair.gridy = 9;
 		contentPane.add(btnSair, gbc_btnSair);
 	}
 
