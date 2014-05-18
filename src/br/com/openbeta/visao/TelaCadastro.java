@@ -1174,7 +1174,7 @@ public class TelaCadastro extends JFrame {
 		gbl_panel_7.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel_7.setLayout(gbl_panel_7);
 		
-		jBAdicionarFuncao = new JButton("Adicionar");
+		jBAdicionarFuncao =    new JButton("Adicionar");
 		jBAdicionarFuncao.setFont(new Font("Arial", Font.PLAIN, 11));
 		GridBagConstraints gbc_jBAdicionarFuncao = new GridBagConstraints();
 		gbc_jBAdicionarFuncao.insets = new Insets(10, 10, 5, 440);
