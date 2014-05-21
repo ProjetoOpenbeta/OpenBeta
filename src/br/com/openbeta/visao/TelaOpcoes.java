@@ -18,6 +18,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import javax.swing.JDesktopPane;
 
 public class TelaOpcoes extends JDialog {
 	/**
@@ -70,8 +71,7 @@ public class TelaOpcoes extends JDialog {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JButton btnAlteraGraduao = new JButton("Altera"
-				+ " Gradua\u00E7\u00E3o");
+		JButton btnAlteraGraduao = new JButton("Altera Gradua\u00E7\u00E3o");
 		btnAlteraGraduao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
 				panelFun.setVisible(false);
@@ -108,7 +108,11 @@ public class TelaOpcoes extends JDialog {
 		});
 		btnAlteraDados.setBounds(10, 123, 119, 45);
 		panel.add(btnAlteraDados);
-				
+		
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBounds(82, 151, 1, 1);
+		panel.add(desktopPane);
+			
 		panelDados = new JPanel();
 		panelDados.setBorder(new TitledBorder(null, "Altera Dados", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelDados.setBounds(146, 0, 715, 437);
@@ -164,6 +168,10 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(txtecelular);
 		
 		JButton btnLimparDados = new JButton("Limpar");
+		btnLimparDados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnLimparDados.setBounds(10, 312, 89, 23);
 		panelDados.add(btnLimparDados);
 		
@@ -294,7 +302,7 @@ public class TelaOpcoes extends JDialog {
 		panelFun.add(lblTurno);
 		
 		JComboBox comboTurno = new JComboBox();
-		comboTurno.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "MATUTINO", "VERPERTINO", "NOTURNO"}));
+		comboTurno.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "MATUTINO", "VESPERTINO", "NOTURNO"}));
 		comboTurno.setFont(new Font("Arial", Font.PLAIN, 11));
 		comboTurno.setBounds(71, 59, 127, 20);
 		panelFun.add(comboTurno);
@@ -326,7 +334,7 @@ public class TelaOpcoes extends JDialog {
 		btnSalvarFun.setBounds(109, 124, 89, 23);
 		panelFun.add(btnSalvarFun);
 		panelFun.setVisible(false);
-			
+		
 		panelGrad = new JPanel();
 		panelGrad.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Altera Gradua\u00E7\u00E3o", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelGrad.setBounds(157, 11, 684, 126);

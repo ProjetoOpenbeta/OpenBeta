@@ -90,9 +90,9 @@ public class TelaMenu extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JLabel lblTitulo = new JLabel("OpenBeta");
@@ -176,18 +176,15 @@ public class TelaMenu extends JFrame {
 		gbc_btnRelatorio.gridy = 5;
 		contentPane.add(btnRelatorio, gbc_btnRelatorio);
 		
-		JButton btnNewButton = new JButton("Teste");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaOpcoes to = new TelaOpcoes();
-				to.setVisible(true);
-			}
-		});
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 6;
-		contentPane.add(btnNewButton, gbc_btnNewButton);
+		JLabel opcoes = new JLabel("");
+		opcoes.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\alterar.png"));
+		opcoes.setToolTipText("Tela Opções!");
+		opcoes.setCursor(new Cursor(handCursor));
+		GridBagConstraints gbc_opcoes = new GridBagConstraints();
+		gbc_opcoes.insets = new Insets(0, 0, 5, 0);
+		gbc_opcoes.gridx = 0;
+		gbc_opcoes.gridy = 6;
+		contentPane.add(opcoes, gbc_opcoes);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(0, 0, 51));
@@ -196,7 +193,7 @@ public class TelaMenu extends JFrame {
 		gbc_panel_2.insets = new Insets(0, 0, 5, 0);
 		gbc_panel_2.fill = GridBagConstraints.VERTICAL;
 		gbc_panel_2.gridx = 0;
-		gbc_panel_2.gridy = 7;
+		gbc_panel_2.gridy = 9;
 		contentPane.add(panel_2, gbc_panel_2);
 		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 		
@@ -213,7 +210,7 @@ public class TelaMenu extends JFrame {
 		GridBagConstraints gbc_btnTrocaSenha = new GridBagConstraints();
 		gbc_btnTrocaSenha.insets = new Insets(0, 0, 5, 0);
 		gbc_btnTrocaSenha.gridx = 0;
-		gbc_btnTrocaSenha.gridy = 8;
+		gbc_btnTrocaSenha.gridy = 10;
 		contentPane.add(btnTrocaSenha, gbc_btnTrocaSenha);
 		
 		JLabel btnSair = new JLabel("");
@@ -232,7 +229,7 @@ public class TelaMenu extends JFrame {
 		btnSair.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\saindo.png"));
 		GridBagConstraints gbc_btnSair = new GridBagConstraints();
 		gbc_btnSair.gridx = 0;
-		gbc_btnSair.gridy = 9;
+		gbc_btnSair.gridy = 11;
 		contentPane.add(btnSair, gbc_btnSair);
 	}
 
