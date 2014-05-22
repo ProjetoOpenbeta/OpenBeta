@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.StyleContext.SmallAttributeSet;
 
 import br.com.openbeta.modelo.Pessoa;
 
@@ -59,6 +60,7 @@ public class JDBC {
 	}
 	
 	public void consultaRegistros(Pessoa p, Integer tipodePesquisa, JTable t) throws ClassNotFoundException, SQLException{
+		
 		abreConexao();
 		switch (tipodePesquisa){
 			case 1:
@@ -101,6 +103,22 @@ public class JDBC {
 		}
 		rs.close();
 		stmt.close();
+		fechaConexao();
+	}
+
+	public void insereGraduacao(String graduacao) throws ClassNotFoundException, SQLException{
+		abreConexao();
+		
+		stmt = con.prepareStatement("INSERT INTO tipo_graduacao (tipo_graduacao)VALUES(?);");
+		
+		stmt.setString(1, graduacao);
+		
+		stmt.execute();
+		
+		JOptionPane.showMessageDialog(null, "Graduação inserida com sucesso!");
+		
+		stmt.close();
+		
 		fechaConexao();
 	}
 }
