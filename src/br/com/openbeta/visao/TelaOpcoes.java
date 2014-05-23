@@ -98,6 +98,7 @@ public class TelaOpcoes extends JDialog {
 		panel.add(btnAlteraFuno);
 		
 		JButton btnAlteraDados = new JButton("Altera Dados");
+		btnAlteraDados.setFont(new Font("Arial", Font.PLAIN, 11));
 		btnAlteraDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelGrad.setVisible(false);
@@ -120,54 +121,62 @@ public class TelaOpcoes extends JDialog {
 		panelDados.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("* C\u00F3digo:");
-		lblCodigo.setBounds(11, 21, 65, 14);
+		lblCodigo.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblCodigo.setBounds(14, 21, 51, 15);
 		panelDados.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
+		txtCodigo.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtCodigo.setBounds(75, 18, 133, 20);
 		panelDados.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		JLabel lblSituacao = new JLabel("* Situa\u00E7\u00E3o:");
-		lblSituacao.setBounds(264, 21, 65, 14);
+		lblSituacao.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblSituacao.setBounds(270, 21, 59, 15);
 		panelDados.add(lblSituacao);
 		
 		JComboBox comboSituacao = new JComboBox();
+		comboSituacao.setFont(new Font("Arial", Font.PLAIN, 12));
 		comboSituacao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "EM EXERC\u00CDCIO", "READAPTADO", "AFASTADO DA FUN\u00C7\u00C3O", "LICEN\u00C7A M\u00C9DICA", "LICEN\u00C7A PR\u00CAMIO"}));
 		comboSituacao.setBounds(339, 18, 90, 20);
 		panelDados.add(comboSituacao);
 		
 		JLabel lblEmail = new JLabel("* Email:");
-		lblEmail.setBounds(10, 264, 46, 14);
+		lblEmail.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblEmail.setBounds(51, 264, 43, 15);
 		panelDados.add(lblEmail);
 		
 		txEmail = new JTextField();
-		txEmail.setBounds(74, 261, 235, 20);
+		txEmail.setFont(new Font("Arial", Font.PLAIN, 12));
+		txEmail.setBounds(104, 261, 235, 20);
 		panelDados.add(txEmail);
 		txEmail.setColumns(10);
 		
 		JLabel lblEstadoCivil = new JLabel("* Estado Civil:");
-		lblEstadoCivil.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblEstadoCivil.setBounds(463, 21, 65, 14);
+		lblEstadoCivil.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblEstadoCivil.setBounds(453, 21, 76, 15);
 		panelDados.add(lblEstadoCivil);
 		
 		JComboBox comboCivil = new JComboBox();
 		comboCivil.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "SOLTEIRO", "CASADO", "DIVORCIADO", "VI\u00DAVO"}));
-		comboCivil.setFont(new Font("Arial", Font.PLAIN, 11));
+		comboCivil.setFont(new Font("Arial", Font.PLAIN, 12));
 		comboCivil.setBounds(539, 18, 100, 20);
 		panelDados.add(comboCivil);
 		
 		JLabel lbltelCeluar = new JLabel("*Tel Celular:");
-		lbltelCeluar.setBounds(10, 239, 100, 14);
+		lbltelCeluar.setFont(new Font("Arial", Font.PLAIN, 12));
+		lbltelCeluar.setBounds(26, 238, 68, 15);
 		panelDados.add(lbltelCeluar);
 		
 		txtecelular = new JTextField();
-		txtecelular.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtecelular.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtecelular.setColumns(10);
-		txtecelular.setBounds(86, 236, 86, 20);
+		txtecelular.setBounds(104, 236, 86, 20);
 		panelDados.add(txtecelular);
 		
 		JButton btnLimparDados = new JButton("Limpar");
+		btnLimparDados.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnLimparDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -176,6 +185,7 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(btnLimparDados);
 		
 		JButton btnSalvarDados = new JButton("Salvar");
+		btnSalvarDados.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnSalvarDados.setBounds(101, 312, 89, 23);
 		panelDados.add(btnSalvarDados);
 		
@@ -184,87 +194,91 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(lblEndereo);
 		
 		JLabel lblLogradouro = new JLabel("* Logradouro:");
-		lblLogradouro.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblLogradouro.setBounds(10, 123, 66, 14);
+		lblLogradouro.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblLogradouro.setBounds(24, 123, 75, 15);
 		panelDados.add(lblLogradouro);
 		
 		txtLogradouro = new JTextField();
-		txtLogradouro.setBounds(86, 120, 86, 20);
+		txtLogradouro.setFont(new Font("Arial", Font.PLAIN, 12));
+		txtLogradouro.setBounds(104, 120, 86, 20);
 		panelDados.add(txtLogradouro);
 		txtLogradouro.setColumns(10);
 		
 		JLabel lblEndereco = new JLabel("* Endere\u00E7o:");
+		lblEndereco.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblEndereco.setBounds(218, 120, 71, 14);
 		panelDados.add(lblEndereco);
 		
 		txtEndereco = new JTextField();
+		txtEndereco.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtEndereco.setBounds(291, 120, 229, 20);
 		panelDados.add(txtEndereco);
 		txtEndereco.setColumns(10);
 		
 		JLabel lblNumero = new JLabel("* N\u00FAmero:");
-		lblNumero.setBounds(548, 123, 65, 14);
+		lblNumero.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblNumero.setBounds(552, 123, 56, 15);
 		panelDados.add(lblNumero);
 		
 		txtNumero = new JTextField();
-		txtNumero.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtNumero.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtNumero.setColumns(10);
 		txtNumero.setBounds(618, 117, 86, 20);
 		panelDados.add(txtNumero);
 		
 		JLabel lblCidade = new JLabel("* Cidade:");
-		lblCidade.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblCidade.setBounds(10, 148, 43, 14);
+		lblCidade.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblCidade.setBounds(48, 149, 51, 15);
 		panelDados.add(lblCidade);
 		
 		JLabel lblBairro = new JLabel("* Bairro:");
-		lblBairro.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblBairro.setBounds(10, 173, 39, 14);
+		lblBairro.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblBairro.setBounds(55, 175, 44, 15);
 		panelDados.add(lblBairro);
 		
 		txtCidade = new JTextField();
-		txtCidade.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtCidade.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtCidade.setColumns(10);
-		txtCidade.setBounds(86, 145, 434, 20);
+		txtCidade.setBounds(103, 145, 417, 20);
 		panelDados.add(txtCidade);
 		
 		txtBairro = new JTextField();
-		txtBairro.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtBairro.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtBairro.setColumns(10);
-		txtBairro.setBounds(86, 170, 434, 20);
+		txtBairro.setBounds(103, 170, 417, 20);
 		panelDados.add(txtBairro);
 		
 		JLabel lblUF = new JLabel("* UF:");
-		lblUF.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblUF.setBounds(590, 145, 23, 14);
+		lblUF.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblUF.setBounds(577, 149, 27, 15);
 		panelDados.add(lblUF);
 		
 		JComboBox comboUF = new JComboBox();
 		comboUF.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO"}));
-		comboUF.setFont(new Font("Arial", Font.PLAIN, 11));
+		comboUF.setFont(new Font("Arial", Font.PLAIN, 12));
 		comboUF.setBounds(618, 142, 72, 20);
 		panelDados.add(comboUF);
 		
 		txtCEP = new JTextField();
-		txtCEP.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtCEP.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtCEP.setColumns(10);
 		txtCEP.setBounds(618, 167, 72, 20);
 		panelDados.add(txtCEP);
 		
 		JLabel lblCEP = new JLabel("* CEP:");
-		lblCEP.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblCEP.setBounds(584, 173, 29, 14);
+		lblCEP.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblCEP.setBounds(572, 173, 36, 15);
 		panelDados.add(lblCEP);
 		
 		JLabel lblResidencial = new JLabel("* Tel Residencial:");
-		lblResidencial.setFont(new Font("Arial", Font.PLAIN, 11));
-		lblResidencial.setBounds(10, 198, 82, 14);
+		lblResidencial.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblResidencial.setBounds(10, 198, 97, 15);
 		panelDados.add(lblResidencial);
 		
 		txtResidencial = new JTextField();
-		txtResidencial.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtResidencial.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtResidencial.setColumns(10);
-		txtResidencial.setBounds(97, 195, 231, 20);
+		txtResidencial.setBounds(113, 195, 231, 20);
 		panelDados.add(txtResidencial);
 		panelDados.setVisible(false);
 		

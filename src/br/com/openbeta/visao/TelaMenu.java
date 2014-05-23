@@ -135,7 +135,7 @@ public class TelaMenu extends JFrame {
 				new TelaCadastro().setVisible(true);
 			}
 		});
-		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\inclusao.png"));
+		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\inclusao.png"));
 		GridBagConstraints gbc_btnIncluir = new GridBagConstraints();
 		gbc_btnIncluir.insets = new Insets(0, 0, 5, 0);
 		gbc_btnIncluir.gridx = 0;
@@ -151,7 +151,7 @@ public class TelaMenu extends JFrame {
 				new TelaConsulta().setVisible(true);
 			}
 		});
-		btnConsultar.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\consultar.png"));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\consultar.png"));
 		GridBagConstraints gbc_btnConsultar = new GridBagConstraints();
 		gbc_btnConsultar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnConsultar.gridx = 0;
@@ -169,7 +169,7 @@ public class TelaMenu extends JFrame {
 		        } catch (IOException a) {}
 			}
 		});
-		btnRelatorio.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\relatorio.png"));
+		btnRelatorio.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\relatorio.png"));
 		GridBagConstraints gbc_btnRelatorio = new GridBagConstraints();
 		gbc_btnRelatorio.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRelatorio.gridx = 0;
@@ -177,7 +177,14 @@ public class TelaMenu extends JFrame {
 		contentPane.add(btnRelatorio, gbc_btnRelatorio);
 		
 		JLabel opcoes = new JLabel("");
-		opcoes.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\alterar.png"));
+		opcoes.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				TelaOpcoes to = new TelaOpcoes();
+				to.setVisible(true);
+			}
+		});
+		opcoes.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\alterar.png"));
 		opcoes.setToolTipText("Tela Opções!");
 		opcoes.setCursor(new Cursor(handCursor));
 		GridBagConstraints gbc_opcoes = new GridBagConstraints();
@@ -206,7 +213,7 @@ public class TelaMenu extends JFrame {
 				new TelaAlteracaoSenha().setVisible(true);
 			}
 		});
-		btnTrocaSenha.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\trocasenha.png"));
+		btnTrocaSenha.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\trocasenha.png"));
 		GridBagConstraints gbc_btnTrocaSenha = new GridBagConstraints();
 		gbc_btnTrocaSenha.insets = new Insets(0, 0, 5, 0);
 		gbc_btnTrocaSenha.gridx = 0;
@@ -226,7 +233,7 @@ public class TelaMenu extends JFrame {
 				}
 			}
 		});
-		btnSair.setIcon(new ImageIcon("C:\\Users\\Emanoel\\git\\OpenBeta\\src\\saindo.png"));
+		btnSair.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\saindo.png"));
 		GridBagConstraints gbc_btnSair = new GridBagConstraints();
 		gbc_btnSair.gridx = 0;
 		gbc_btnSair.gridy = 11;
