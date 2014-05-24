@@ -7,7 +7,7 @@ include "cabecalho.php";
    
    $query = "select * from pessoa 
    			inner join sexo on sexo.id_sexo = pessoa.id_sexo
-			where sexo.sexo like '%$sexo%' and pessoa.id_atividade = '1'"; 
+			where sexo.sexo like '%$sexo%'"; 
 
 	 if ($sexo) 
 	 {

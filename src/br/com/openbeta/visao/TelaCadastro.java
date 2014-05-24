@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.openbeta.controle.EAO;
+import br.com.openbeta.controle.JDBC;
 import br.com.openbeta.modelo.Atividade;
 import br.com.openbeta.modelo.Cargo;
 import br.com.openbeta.modelo.Contratacao;
@@ -57,7 +59,10 @@ import br.com.openbeta.renderers.FuncoesTableModel2;
 import br.com.openbeta.renderers.GraduacoesTableModel2;
 import br.com.openbeta.utilitarios.Md5;
 import br.com.openbeta.utilitarios.ValidaCPF;
+
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class TelaCadastro extends JFrame {
@@ -98,7 +103,7 @@ public class TelaCadastro extends JFrame {
 	private JComboBox jComboBoxSexo;
 	private JComboBox jComboBoxUFNatal;
 	private JComboBox jComboBoxUFEndereco;
-	private JComboBox jComboBoxGraduacao;
+	public JComboBox jComboBoxGraduacao;
 	private JComboBox jComboBoxFuncao;
 	private JComboBox jComboBoxSetor;
 	private JComboBox jComboBoxTurno;
@@ -910,7 +915,7 @@ public class TelaCadastro extends JFrame {
 		graduacoes.add(panel_0, gbc_panel_0);
 		GridBagLayout gbl_panel_0 = new GridBagLayout();
 		gbc_panel_0.insets = new Insets(10, 10, 5, 10);
-		gbl_panel_0.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panel_0.columnWidths = new int[]{0, 113, 0, 0, 0};
 		gbl_panel_0.rowHeights = new int[]{0, 0};
 		gbl_panel_0.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_0.rowWeights = new double[]{0.0, Double.MIN_VALUE};
@@ -927,7 +932,7 @@ public class TelaCadastro extends JFrame {
 		
 		jComboBoxGraduacao = new JComboBox();
 		jComboBoxGraduacao.setFont(new Font("Arial", Font.PLAIN, 11));
-		jComboBoxGraduacao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "BACHARELADO", "LICENCIATURA", "TECN\u00D3LOGO", "P\u00D3S-GRADUA\u00C7\u00C3O", "MESTRADO", "DOUTORADO"}));
+		jComboBoxGraduacao.setModel(new DefaultComboBoxModel(new String[] {"Selecione"}));
 		GridBagConstraints gbc_jComboBoxGraduacao = new GridBagConstraints();
 		gbc_jComboBoxGraduacao.insets = new Insets(0, 0, 0, 5);
 		gbc_jComboBoxGraduacao.fill = GridBagConstraints.HORIZONTAL;

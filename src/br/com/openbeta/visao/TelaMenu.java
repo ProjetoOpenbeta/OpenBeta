@@ -34,6 +34,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -43,6 +44,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
+
+import br.com.openbeta.controle.JDBC;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -132,7 +135,14 @@ public class TelaMenu extends JFrame {
 		btnIncluir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				new TelaCadastro().setVisible(true);
+				TelaCadastro tc = new TelaCadastro();
+				tc.setVisible(true);
+				JDBC b = new JDBC();
+				try {
+					b.buscaGraducoes(tc.jComboBoxGraduacao);
+				} catch (ClassNotFoundException | SQLException e) {
+					JOptionPane.showMessageDialog(null, "Erro ao buscar graduações :"+e.getMessage());
+				}
 			}
 		});
 		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\inclusao.png"));

@@ -5,13 +5,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.StyleContext.SmallAttributeSet;
 
 import br.com.openbeta.modelo.Pessoa;
+import br.com.openbeta.modelo.TipoGraduacao;
 
 /*
  * Classe criada com o intuito de facilitar a manutenção do 
@@ -27,7 +30,7 @@ public class JDBC {
 	//Método responsável por abrir as conexões com banco.
 	private void abreConexao() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://192.168.1.10/openbeta","openbeta","wheezy$2014");
+		con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/openbeta","root","");
 	}
 	
 	//Método responsavel por fechar as conexões com o banco
@@ -119,6 +122,16 @@ public class JDBC {
 		
 		stmt.close();
 		
+		fechaConexao();
+	}
+	@SuppressWarnings("unchecked")
+	public void buscaGraducoes(JComboBox cb) throws ClassNotFoundException, SQLException{
+		abreConexao();
+		stmt = con.prepareStatement("SELECT tipo_graduacao FROM tipo_graduacao;");
+		ResultSet rs = stmt.executeQuery();
+		while (rs.next()) {
+			cb.addItem(rs.getString("tipo_graduacao"));
+		}
 		fechaConexao();
 	}
 }
