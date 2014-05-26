@@ -63,6 +63,8 @@ import br.com.openbeta.utilitarios.ValidaCPF;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPasswordField;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class TelaCadastro extends JFrame {
@@ -74,7 +76,6 @@ public class TelaCadastro extends JFrame {
 	private JTextField jTNomeMae;
 	private JTextField jTCPF;
 	private JTextField jTRG;
-	private JTextField jTSenha;
 	private JTextField jTCidadeNatal;
 	private JTextField jTDataNascimento;
 	private JTextField jTEnderecoLogradouro;
@@ -119,6 +120,7 @@ public class TelaCadastro extends JFrame {
     private EAO                         telefoneResidencialPessoaEAO    = new EAO(TelefoneResidencialPessoa.class);
     private GraduacoesTableModel2       modelGraduacao                  = new GraduacoesTableModel2();
     private FuncoesTableModel2          modelFuncao                     = new FuncoesTableModel2();
+    private JPasswordField jTSenha;
     
 	/**
 	 * Launch the application.
@@ -452,9 +454,9 @@ public class TelaCadastro extends JFrame {
 		gbc_linha_4.gridy = 4;
 		dados_pessoais.add(linha_4, gbc_linha_4);
 		GridBagLayout gbl_linha_4 = new GridBagLayout();
-		gbl_linha_4.columnWidths = new int[]{85, 243, 0};
+		gbl_linha_4.columnWidths = new int[]{85, 243, 0, 0, 0};
 		gbl_linha_4.rowHeights = new int[]{0, 0, 0};
-		gbl_linha_4.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_linha_4.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_linha_4.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		linha_4.setLayout(gbl_linha_4);
 		
@@ -467,13 +469,10 @@ public class TelaCadastro extends JFrame {
 		gbc_lblSenha.gridy = 0;
 		linha_4.add(lblSenha, gbc_lblSenha);
 		
-		jTSenha = new JTextField();
-		jTSenha.setFont(new Font("Arial", Font.PLAIN, 11));
-		jTSenha.setColumns(10);
+		jTSenha = new JPasswordField();
 		GridBagConstraints gbc_jTSenha = new GridBagConstraints();
-		gbc_jTSenha.weighty = 1.1;
-		gbc_jTSenha.fill = GridBagConstraints.BOTH;
-		gbc_jTSenha.insets = new Insets(0, 2, 5, 10);
+		gbc_jTSenha.insets = new Insets(0, 0, 5, 5);
+		gbc_jTSenha.fill = GridBagConstraints.HORIZONTAL;
 		gbc_jTSenha.gridx = 1;
 		gbc_jTSenha.gridy = 0;
 		linha_4.add(jTSenha, gbc_jTSenha);

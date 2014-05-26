@@ -151,7 +151,7 @@ public class TelaMenu extends JFrame {
 				}
 			}
 		});
-		btnIncluir.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\inclusao.png"));
+		btnIncluir.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\inclusao.png"));
 		GridBagConstraints gbc_btnIncluir = new GridBagConstraints();
 		gbc_btnIncluir.insets = new Insets(0, 0, 5, 0);
 		gbc_btnIncluir.gridx = 0;
@@ -181,7 +181,7 @@ public class TelaMenu extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://localhost/openbeta/site/site02");
+		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://192.168.1.10/openbeta/");
 		        } catch (IOException a) {}
 			}
 		});
