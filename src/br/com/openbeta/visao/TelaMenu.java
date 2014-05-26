@@ -167,7 +167,7 @@ public class TelaMenu extends JFrame {
 				new TelaConsulta().setVisible(true);
 			}
 		});
-		btnConsultar.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\consultar.png"));
+		btnConsultar.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\consultar.png"));
 		GridBagConstraints gbc_btnConsultar = new GridBagConstraints();
 		gbc_btnConsultar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnConsultar.gridx = 0;
@@ -185,7 +185,7 @@ public class TelaMenu extends JFrame {
 		        } catch (IOException a) {}
 			}
 		});
-		btnRelatorio.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\relatorio.png"));
+		btnRelatorio.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\relatorio.png"));
 		GridBagConstraints gbc_btnRelatorio = new GridBagConstraints();
 		gbc_btnRelatorio.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRelatorio.gridx = 0;
@@ -200,7 +200,7 @@ public class TelaMenu extends JFrame {
 				to.setVisible(true);
 			}
 		});
-		opcoes.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\alterar.png"));
+		opcoes.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\alterar.png"));
 		opcoes.setToolTipText("Tela Opções!");
 		opcoes.setCursor(new Cursor(handCursor));
 		GridBagConstraints gbc_opcoes = new GridBagConstraints();
@@ -229,7 +229,7 @@ public class TelaMenu extends JFrame {
 				new TelaAlteracaoSenha().setVisible(true);
 			}
 		});
-		btnTrocaSenha.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\trocasenha.png"));
+		btnTrocaSenha.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\trocasenha.png"));
 		GridBagConstraints gbc_btnTrocaSenha = new GridBagConstraints();
 		gbc_btnTrocaSenha.insets = new Insets(0, 0, 5, 0);
 		gbc_btnTrocaSenha.gridx = 0;
@@ -249,7 +249,7 @@ public class TelaMenu extends JFrame {
 				}
 			}
 		});
-		btnSair.setIcon(new ImageIcon("C:\\Users\\Eduardo\\OpenBeta\\src\\saindo.png"));
+		btnSair.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\saindo.png"));
 		GridBagConstraints gbc_btnSair = new GridBagConstraints();
 		gbc_btnSair.gridx = 0;
 		gbc_btnSair.gridy = 11;
