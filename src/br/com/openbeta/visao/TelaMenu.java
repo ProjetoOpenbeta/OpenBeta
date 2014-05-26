@@ -28,6 +28,7 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -66,6 +67,9 @@ public class TelaMenu extends JFrame {
 				try {
 					TelaMenu frame = new TelaMenu();
 					frame.setVisible(true);
+					int largura=GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getWidth();
+					int altura=GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getHeight();
+					frame.setSize(largura, altura);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -77,6 +81,8 @@ public class TelaMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaMenu() {
+		setAlwaysOnTop(true);
+		setTitle("Menu Principal");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\colegio.jpg"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
