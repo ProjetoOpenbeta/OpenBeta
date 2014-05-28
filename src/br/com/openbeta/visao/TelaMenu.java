@@ -83,7 +83,7 @@ public class TelaMenu extends JFrame {
 	public TelaMenu() {
 		setAlwaysOnTop(true);
 		setTitle("Menu Principal");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Eduardo\\git\\OpenBeta\\src\\colegio.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\openbeta\\OpenBeta\\colegio.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 132, 750);

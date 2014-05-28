@@ -33,8 +33,9 @@ import javax.persistence.*;
 @Table(name = "endereco")
 
 public class Endereco implements Serializable{
-    
-    private Integer         id_endereco;
+
+	private static final long serialVersionUID = 1L;
+	private Integer         id_endereco;
     private String          logradouro;
     private String          rua;
     private String          numero;

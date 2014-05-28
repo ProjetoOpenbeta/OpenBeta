@@ -2,7 +2,6 @@
 /atividade.hbm.xml
 /br
 /cargo.hbm.xml
-/colegio.jpg
 /consultar.png
 /contratacao.hbm.xml
 /endereco.hbm.xml
@@ -23,6 +22,3 @@
 /sub_setor.hbm.xml
 /telefone_residencial.hbm.xml
 /telefone_residencial_pessoa.hbm.xml
-/tipo_graduacao.hbm.xml
-/trocasenha.png
-/turno.hbm.xml

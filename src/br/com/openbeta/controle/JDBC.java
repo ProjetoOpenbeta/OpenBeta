@@ -1,6 +1,7 @@
 package br.com.openbeta.controle;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.StyleContext.SmallAttributeSet;
 
+import br.com.openbeta.modelo.Endereco;
 import br.com.openbeta.modelo.Pessoa;
 import br.com.openbeta.modelo.TipoGraduacao;
 
@@ -30,7 +32,7 @@ public class JDBC {
 	//Método responsável por abrir as conexões com banco.
 	private void abreConexao() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://192.168.1.10/openbeta","openbeta","wheezy$2014");
+		con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/openbeta","root","");
 	}
 	
 	//Método responsavel por fechar as conexões com o banco
@@ -124,7 +126,9 @@ public class JDBC {
 		
 		fechaConexao();
 	}
-	@SuppressWarnings("unchecked")
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void buscaGraducoes(JComboBox cb) throws ClassNotFoundException, SQLException{
 		abreConexao();
 		stmt = con.prepareStatement("SELECT tipo_graduacao FROM tipo_graduacao;");
@@ -132,6 +136,16 @@ public class JDBC {
 		while (rs.next()) {
 			cb.addItem(rs.getString("tipo_graduacao"));
 		}
+		fechaConexao();
+	}
+	
+	
+	public void buscaPessoaParaAlterar(Pessoa p) throws ClassNotFoundException, SQLException{
+		abreConexao();
+		stmt = con.prepareStatement("SELECT * FROM pessoa WHERE id_pessoa=?;");
+		
+		//stmt.set
+		
 		fechaConexao();
 	}
 }

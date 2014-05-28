@@ -4,21 +4,35 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+
 import java.awt.Color;
+
 import javax.swing.JButton;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.JDesktopPane;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import br.com.openbeta.modelo.Pessoa;
+import br.com.openbeta.utilitarios.HibernateUtil;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class TelaOpcoes extends JDialog {
 	/**
@@ -80,7 +94,7 @@ public class TelaOpcoes extends JDialog {
 								
 			}
 		});
-		btnAlteraGraduao.setBounds(10, 11, 119, 45);
+		btnAlteraGraduao.setBounds(10, 123, 119, 45);
 		btnAlteraGraduao.setFont(new Font("Arial", Font.PLAIN, 11));
 		panel.add(btnAlteraGraduao);
 		
@@ -107,7 +121,7 @@ public class TelaOpcoes extends JDialog {
 				
 			}
 		});
-		btnAlteraDados.setBounds(10, 123, 119, 45);
+		btnAlteraDados.setBounds(10, 11, 119, 45);
 		panel.add(btnAlteraDados);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -126,6 +140,15 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
+		txtCodigo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				String num = "0987654321";
+				if(!num.contains(arg0.getKeyChar()+"")){
+					arg0.consume();
+				}
+			}
+		});
 		txtCodigo.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtCodigo.setBounds(75, 18, 133, 20);
 		panelDados.add(txtCodigo);
@@ -185,6 +208,18 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(btnLimparDados);
 		
 		JButton btnSalvarDados = new JButton("Salvar");
+		btnSalvarDados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Pessoa pessoa = new Pessoa();
+				pessoa.setid_pessoa(Integer.valueOf(txtCodigo.getText()));
+				Session sessao = HibernateUtil.getSession();
+				Transaction t = sessao.beginTransaction();
+				sessao.update(pessoa);
+				t.commit();
+				sessao.clear();
+				sessao.close();
+			}
+		});
 		btnSalvarDados.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnSalvarDados.setBounds(101, 312, 89, 23);
 		panelDados.add(btnSalvarDados);
@@ -281,13 +316,13 @@ public class TelaOpcoes extends JDialog {
 		txtResidencial.setBounds(113, 195, 231, 20);
 		panelDados.add(txtResidencial);
 		panelDados.setVisible(false);
-		
+		/*
 		panelFun = new JPanel();
 		panelFun.setBorder(new TitledBorder(null, "Altera Função", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelFun.setBounds(155, 11, 686, 426);
 		getContentPane().add(panelFun);
 		panelFun.setLayout(null);
-		
+		*/
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "PROFESSOR", "FUNCION\u00C1RIO", "PEDAGOGIA"}));
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 11));
