@@ -5,10 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import br.com.openbeta.modelo.Pessoa;
 
 /*
@@ -131,16 +135,26 @@ public class JDBC {
 		fechaConexao();
 	}
 	
-	public void buscaPessoaParaAlterar(Pessoa p) throws ClassNotFoundException, SQLException{
+	public List<Pessoa> buscaPessoaParaAlterar(Pessoa p) throws ClassNotFoundException, SQLException{
+		
 		abreConexao();
+		
 		stmt = con.prepareStatement("SELECT * FROM pessoa WHERE id_pessoa=?;");
 		
 		stmt.setInt(1, p.getid_pessoa());
 		
-		
-		
-		
-		
+		ResultSet rs = stmt.executeQuery();
+		List<Pessoa> pessoa = new ArrayList<Pessoa>();
+		while(rs.next()){
+			Pessoa pe = new Pessoa();
+			pe.setnome(rs.getString("nome"));
+			pe.setdata_nascto(rs.getDate("data_nascto"));
+			
+			pessoa.add(pe);
+		}
+		rs.close();
+		stmt.close();
 		fechaConexao();
+		return pessoa;
 	}
 }
