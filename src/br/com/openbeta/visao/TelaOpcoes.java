@@ -30,6 +30,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import br.com.openbeta.modelo.Endereco;
+import br.com.openbeta.modelo.Funcao;
 import br.com.openbeta.modelo.Graduacao;
 import br.com.openbeta.modelo.Pessoa;
 import br.com.openbeta.modelo.TelefoneResidencial;
@@ -63,6 +64,7 @@ public class TelaOpcoes extends JDialog {
 	private JTextField txtNome;
 	private JComboBox comboUF;
 	private JComboBox comboGrad;
+	private JComboBox comboFuncao;
 	
 	/**
 	 * Launch the application.
@@ -136,7 +138,7 @@ public class TelaOpcoes extends JDialog {
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBounds(82, 151, 1, 1);
 		panel.add(desktopPane);
-		/*
+		
 		panelDados = new JPanel();
 		panelDados.setBorder(new TitledBorder(null, "Altera Dados", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelDados.setBounds(155, 0, 728, 356);
@@ -238,14 +240,22 @@ public class TelaOpcoes extends JDialog {
 				telresidencial.setTelefone_res(String.valueOf(txtResidencial.getText()));
 				comboSituacao.getSelectedItem().toString();			
 				comboCivil.getSelectedItem().toString();
-				comboUF.getSelectedItem().toString();					
+				comboUF.getSelectedItem().toString();		
+				
 								
 				Session sessao = HibernateUtil.getSession();
 				Transaction t = sessao.beginTransaction();
-				sessao.update(pessoa);
+				sessao.update(endereco);
 				t.commit();
 				sessao.clear();
 				sessao.close();
+							
+				Session sessaopessoa = HibernateUtil.getSession();
+				Transaction tpessoa = sessao.beginTransaction();
+				sessaopessoa.update(pessoa);
+				tpessoa.commit();
+				sessaopessoa.clear();
+				sessaopessoa.close();
 			}
 		});
 		btnSalvarDados.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -354,18 +364,18 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(txtNome);
 		txtNome.setColumns(10);
 		panelDados.setVisible(false);
-		*/
+		
 		panelFun = new JPanel();
 		panelFun.setBorder(new TitledBorder(null, "Altera Função", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelFun.setBounds(155, 11, 719, 176);
 		getContentPane().add(panelFun);
 		panelFun.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "PROFESSOR", "FUNCION\u00C1RIO", "PEDAGOGIA"}));
-		comboBox.setFont(new Font("Arial", Font.PLAIN, 11));
-		comboBox.setBounds(71, 19, 127, 20);
-		panelFun.add(comboBox);
+		final JComboBox comboFuncao = new JComboBox();
+		comboFuncao.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "PROFESSOR", "FUNCION\u00C1RIO", "PEDAGOGIA"}));
+		comboFuncao.setFont(new Font("Arial", Font.PLAIN, 11));
+		comboFuncao.setBounds(71, 19, 127, 20);
+		panelFun.add(comboFuncao);
 		
 		JLabel lblFuncao = new JLabel("* Fun\u00E7\u00E3o:");
 		lblFuncao.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -377,18 +387,18 @@ public class TelaOpcoes extends JDialog {
 		label_1.setBounds(292, 22, 83, 14);
 		panelFun.add(label_1);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ENSINO FUNDAMENTAL", "ENSINO M\u00C9DIO", "T\u00C9C. SUBSEQUENTE - ADMINISTRA\u00C7\u00C3O ", "T\u00C9C. SUBSEQUENTE - SECRETARIADO ", "T\u00C9C. SUBSEQUENTE - INFORM\u00C1TICA ", "T\u00C9C. INTEGRAL - ADMINISTRA\u00C7\u00C3O", "T\u00C9C. INTEGRAL - INFORM\u00C1TICA", "CELEM", "SALA DE RECURSOS", "SALA DE APOIO", "ESPORTE E LAZER", "AULAS ESPECIALIZADAS", "ARTE E CULTURA"}));
-		comboBox_1.setFont(new Font("Arial", Font.PLAIN, 11));
-		comboBox_1.setBounds(385, 19, 222, 20);
-		panelFun.add(comboBox_1);
+		final JComboBox comboSetorCurso = new JComboBox();
+		comboSetorCurso.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ENSINO FUNDAMENTAL", "ENSINO M\u00C9DIO", "T\u00C9C. SUBSEQUENTE - ADMINISTRA\u00C7\u00C3O ", "T\u00C9C. SUBSEQUENTE - SECRETARIADO ", "T\u00C9C. SUBSEQUENTE - INFORM\u00C1TICA ", "T\u00C9C. INTEGRAL - ADMINISTRA\u00C7\u00C3O", "T\u00C9C. INTEGRAL - INFORM\u00C1TICA", "CELEM", "SALA DE RECURSOS", "SALA DE APOIO", "ESPORTE E LAZER", "AULAS ESPECIALIZADAS", "ARTE E CULTURA"}));
+		comboSetorCurso.setFont(new Font("Arial", Font.PLAIN, 11));
+		comboSetorCurso.setBounds(385, 19, 222, 20);
+		panelFun.add(comboSetorCurso);
 		
 		JLabel lblTurno = new JLabel("* Turno:");
 		lblTurno.setFont(new Font("Arial", Font.PLAIN, 11));
 		lblTurno.setBounds(18, 62, 38, 14);
 		panelFun.add(lblTurno);
 		
-		JComboBox comboTurno = new JComboBox();
+		final JComboBox comboTurno = new JComboBox();
 		comboTurno.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "MATUTINO", "VESPERTINO", "NOTURNO"}));
 		comboTurno.setFont(new Font("Arial", Font.PLAIN, 11));
 		comboTurno.setBounds(71, 59, 127, 20);
@@ -399,7 +409,7 @@ public class TelaOpcoes extends JDialog {
 		lblDiciplina.setBounds(253, 62, 122, 14);
 		panelFun.add(lblDiciplina);
 		
-		JComboBox comboDiciplina = new JComboBox();
+		final JComboBox comboDiciplina = new JComboBox();
 		comboDiciplina.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "ARTE", "CI\u00CANCIAS", "EDUCA\u00C7\u00C3O F\u00CDSICA", "GEOGRAFIA", "HIST\u00D3RIA", "L\u00CDNGUA PORTUGUESA", "MATEM\u00C1TICA", "L.E.M - INGL\u00CAS", "ENSINO RELIGIOSO", "BIOLOGIA", "FILOSOFIA", "F\u00CDSICA", "QU\u00CDMICA", "L.E.M - ESPANHOL", "ADMINISTRA\u00C7\u00C3O DE PROD. E MAT.", "ADM. FINANCEIRA E OR\u00C7AMENT\u00C1RIA", "COMPORTAMENTO ORGANIZACIONAL", "CONTABILIDADE", "ELABORA\u00C7\u00C3O E AN\u00C1LISE PROJETOS", "ESTAT\u00CDSTICA APLICADA", "FUNDAMENTOS DO TRABALHO", "GEST\u00C3O DE PESSOAS", "INFORM\u00C1TICA", "INTRODU\u00C7\u00C3O \u00C0 ECONOMIA"}));
 		comboDiciplina.setFont(new Font("Arial", Font.PLAIN, 11));
 		comboDiciplina.setBounds(385, 59, 265, 20);
@@ -416,12 +426,24 @@ public class TelaOpcoes extends JDialog {
 		JButton btnSalvarFun = new JButton("Salvar");
 		btnSalvarFun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Funcao fun = new Funcao();
+				comboFuncao.getSelectedItem().toString();
+				comboTurno.getSelectedItem().toString();
+				comboSetorCurso.getSelectedItem().toString();
+				comboDiciplina.getSelectedItem().toString();
+				
+				Session sessao = HibernateUtil.getSession();
+				Transaction t = sessao.beginTransaction();
+				sessao.update(fun);
+				t.commit();
+				sessao.clear();
+				sessao.close();						
 			}
 		});
 		btnSalvarFun.setBounds(109, 124, 89, 23);
 		panelFun.add(btnSalvarFun);
 		panelFun.setVisible(false);
-		/*
+		
 		panelGrad = new JPanel();
 		panelGrad.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Altera Gradua\u00E7\u00E3o", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelGrad.setBounds(157, 11, 663, 126);
@@ -475,9 +497,7 @@ public class TelaOpcoes extends JDialog {
 				sessao.update(grad);
 				t.commit();
 				sessao.clear();
-				sessao.close();
-				
-				
+				sessao.close();				
 			}
 		});
 		btnSalvar.setBounds(103, 92, 89, 23);
@@ -504,7 +524,7 @@ public class TelaOpcoes extends JDialog {
 		panelGrad.add(txtDataConclusao);
 		txtDataConclusao.setColumns(10);
 		panelGrad.setVisible(false);
-	*/
+	
 		
 	}
 }
