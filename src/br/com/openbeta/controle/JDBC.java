@@ -1,22 +1,15 @@
 package br.com.openbeta.controle;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.StyleContext.SmallAttributeSet;
-
-import br.com.openbeta.modelo.Endereco;
 import br.com.openbeta.modelo.Pessoa;
-import br.com.openbeta.modelo.TipoGraduacao;
 
 /*
  * Classe criada com o intuito de facilitar a manutenção do 
@@ -127,7 +120,6 @@ public class JDBC {
 		fechaConexao();
 	}
 	
-	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void buscaGraducoes(JComboBox cb) throws ClassNotFoundException, SQLException{
 		abreConexao();
@@ -139,12 +131,15 @@ public class JDBC {
 		fechaConexao();
 	}
 	
-	
 	public void buscaPessoaParaAlterar(Pessoa p) throws ClassNotFoundException, SQLException{
 		abreConexao();
 		stmt = con.prepareStatement("SELECT * FROM pessoa WHERE id_pessoa=?;");
 		
-		//stmt.set
+		stmt.setInt(1, p.getid_pessoa());
+		
+		
+		
+		
 		
 		fechaConexao();
 	}
