@@ -150,7 +150,6 @@ public class JDBC {
 		while(rs.next()){
 			
 			p.add(rs.getString("nome"));
-			p.add(rs.getString("nome"));
 			p.add(rs.getInt("rg"));
 			p.add(rs.getDate("data_nascto"));
 			p.add(rs.getString("nome_mae"));
