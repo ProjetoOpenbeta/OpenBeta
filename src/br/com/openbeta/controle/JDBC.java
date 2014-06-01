@@ -167,4 +167,29 @@ public class JDBC {
 		return p;
 		
 	}
+	
+	public void alterDados(ArrayList<String> lista) throws ClassNotFoundException, SQLException{
+		abreConexao();
+		stmt = con.prepareStatement("UPDATE pessoa SET nome=?, rg=?, data_nascto=?, nome_mae=?, email_principal=?, email_adicional=?, telefone_celular=?, telefone_celular_2=?, cidade_natal=?, outros=? "
+				+ "WHERE id_pessoa=?;");
+		
+		stmt.setString(1, lista.get(0));
+		stmt.setString(2, lista.get(1));
+		stmt.setString(3, lista.get(2));
+		stmt.setString(4, lista.get(3));
+		stmt.setString(5, lista.get(4));
+		stmt.setString(6, lista.get(5));
+		stmt.setString(7, lista.get(6));
+		stmt.setString(8, lista.get(7));
+		stmt.setString(9, lista.get(8));
+		stmt.setString(10, lista.get(9));
+		stmt.setString(11, lista.get(10));
+		
+		stmt.execute();
+		
+		JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
+		
+		stmt.close();
+		fechaConexao();
+	}
 }
