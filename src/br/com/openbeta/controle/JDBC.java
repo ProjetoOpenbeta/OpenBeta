@@ -1,5 +1,6 @@
 package br.com.openbeta.controle;
 
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -135,7 +136,8 @@ public class JDBC {
 		fechaConexao();
 	}
 	
-	public void buscaPessoaParaAlterar(String id) throws ClassNotFoundException, SQLException{
+	public ArrayList<Object> buscaPessoaParaAlterar(String id) throws ClassNotFoundException, SQLException{
+		ArrayList<Object> p = new ArrayList<Object>();
 		
 		abreConexao();
 		
@@ -146,14 +148,24 @@ public class JDBC {
 		ResultSet rs = stmt.executeQuery();
 		
 		while(rs.next()){
-			Pessoa pe = new Pessoa();
-			pe.setnome(rs.getString("nome"));
-			pe.setdata_nascto(rs.getDate("data_nascto"));
 			
+			p.add(rs.getString("nome"));
+			p.add(rs.getString("nome"));
+			p.add(rs.getInt("rg"));
+			p.add(rs.getDate("data_nascto"));
+			p.add(rs.getString("nome_mae"));
+			p.add(rs.getString("email_principal"));
+			p.add(rs.getString("email_adicional"));
+			p.add(rs.getString("telefone_celular"));
+			p.add(rs.getString("telefone_celular_2"));
+			p.add(rs.getString("cidade_natal"));
+			p.add(rs.getString("outros"));
 			
 		}
 		rs.close();
 		stmt.close();
 		fechaConexao();
+		return p;
+		
 	}
 }
