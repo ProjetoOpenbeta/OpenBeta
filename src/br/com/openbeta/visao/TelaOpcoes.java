@@ -257,7 +257,7 @@ public class TelaOpcoes extends JDialog {
 		JButton btnSalvarDados = new JButton("Salvar");
 		btnSalvarDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*String situacao;
+				/**String situacao;
 				String estadocivil;
 				String uf;
 				Pessoa pessoa = new Pessoa();
