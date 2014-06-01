@@ -135,26 +135,25 @@ public class JDBC {
 		fechaConexao();
 	}
 	
-	public List<Pessoa> buscaPessoaParaAlterar(Pessoa p) throws ClassNotFoundException, SQLException{
+	public void buscaPessoaParaAlterar(String id) throws ClassNotFoundException, SQLException{
 		
 		abreConexao();
 		
 		stmt = con.prepareStatement("SELECT * FROM pessoa WHERE id_pessoa=?;");
 		
-		stmt.setInt(1, p.getid_pessoa());
+		stmt.setString(1, id);
 		
 		ResultSet rs = stmt.executeQuery();
-		List<Pessoa> pessoa = new ArrayList<Pessoa>();
+		
 		while(rs.next()){
 			Pessoa pe = new Pessoa();
 			pe.setnome(rs.getString("nome"));
 			pe.setdata_nascto(rs.getDate("data_nascto"));
 			
-			pessoa.add(pe);
+			
 		}
 		rs.close();
 		stmt.close();
 		fechaConexao();
-		return pessoa;
 	}
 }

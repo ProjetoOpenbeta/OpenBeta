@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.border.TitledBorder;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -87,7 +88,7 @@ public class TelaOpcoes extends JDialog {
 	 * Create the dialog.
 	 */
 	public TelaOpcoes() {
-		setBounds(100, 100, 838, 486);
+		setBounds(100, 100, 883, 486);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -158,6 +159,19 @@ public class TelaOpcoes extends JDialog {
 				if(!num.contains(arg0.getKeyChar()+"")){
 					arg0.consume();
 				}
+			}
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER ){
+					
+					if (txtCodigo.getText().equals("")){
+						JOptionPane.showMessageDialog(null, "Por favor inserir um código! ");
+					}else{
+						
+						
+					}
+					
+				};	
 			}
 		});
 		txtCodigo.setFont(new Font("Arial", Font.PLAIN, 12));
