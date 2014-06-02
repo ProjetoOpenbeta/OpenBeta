@@ -1,7 +1,7 @@
 <?php
 include "cabecalho.php";
   
-   $sexo  = $_POST['sexo'];
+   $sexo  = $_POST['situacao'];
     
   $query = "select * from pessoa 
    			inner join situacao on situacao.id_situacao = pessoa.id_situacao

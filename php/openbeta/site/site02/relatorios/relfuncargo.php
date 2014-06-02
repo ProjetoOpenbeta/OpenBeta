@@ -3,11 +3,12 @@ include "cabecalho.php";
   
    $funcao  = $_POST['funcao'];
    
-   $query = "select distinct * from pessoa  
-	inner join funcao_pessoa on funcao_pessoa.id_pessoa = pessoa.id_pessoa 
+   $query = "select * from pessoa  
+	inner join funcao_pessoa 
+	on funcao_pessoa.id_pessoa = pessoa.id_pessoa 
 	inner join funcao on funcao.id_funcao = funcao_pessoa.id_funcao 
 	inner join cargo on  cargo.id_cargo = funcao.id_cargo
-	where cargo.nome_cargo like '%$funcao%' and pessoa.id_atividade = '1'";
+	where cargo.nome_cargo like '%$funcao%'";
 
        echo "Pesquisa por funcao que contenham : " . $funcao . "<br>";
   //   }else

@@ -3,7 +3,7 @@ include "cabecalho.php";
   
    $sexo  = $_POST['contratacao'];
     
-  $query = "select distinct * from pessoa 
+  $query = "select  * from pessoa 
    			inner join contratacao on contratacao.id_contratacao = pessoa.id_contratacao
 			where contratacao.tipo_contratacao like '%$contratacao%' and pessoa.id_atividade = '1'";
 	 if ($situacao) 

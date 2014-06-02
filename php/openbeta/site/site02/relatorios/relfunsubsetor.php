@@ -2,8 +2,7 @@
 include "cabecalho.php";
   
    $subsetor  = $_POST['sub_setor'];
-   
-   $query = "select distinct * from pessoa
+   $query = "select * from pessoa
    inner join funcao_pessoa on funcao_pessoa.id_pessoa = pessoa.id_pessoa
    inner join funcao on funcao.id_funcao = funcao_pessoa.id_funcao
    inner join sub_setor on sub_setor.id_sub_setor = funcao.id_sub_setor

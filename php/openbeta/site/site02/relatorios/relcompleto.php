@@ -4,7 +4,7 @@ include "cabecalho.php";
    $nome = $_POST['nome'];
 
    $query = "SELECT
-	p.nome,
+p.nome,
 	p.registro, 	
 	p.rg, 
 	p.cpf,
@@ -38,26 +38,27 @@ include "cabecalho.php";
 	s.nome_setor,
 	ss.nome_sub_setor,
 	turno.turno
-	FROM PESSOA AS P  
-	INNER JOIN ENDERECO AS END ON END.ID_ENDERECO = P.ID_ENDERECO
-	INNER JOIN ESTADO AS E ON E.ID_ESTADO = P.ID_ESTADO_NATAL
-	INNER JOIN ATIVIDADE AS A ON A.ID_ATIVIDADE = P.ID_ATIVIDADE
-	INNER JOIN CONTRATACAO AS C ON C.ID_CONTRATACAO = P.ID_CONTRATACAO
-	INNER JOIN SITUACAO ON SITUACAO.ID_SITUACAO = P.ID_SITUACAO
-	INNER JOIN ESTADO_CIVIL AS CIVIL ON CIVIL.ID_ESTADO_CIVIL = P.ID_ESTADO_CIVIL	
-	INNER JOIN SEXO AS SEXO ON SEXO.ID_SEXO = P.ID_SEXO
-	INNER JOIN TELEFONE_RESIDENCIAL_PESSOA AS TRP ON TRP.ID_PESSOA = P.ID_PESSOA
-	INNER JOIN TELEFONE_RESIDENCIAL AS TR ON TR.ID_TELEFONE = TRP.ID_TELEFONE_RESIDENCIAL
-	INNER JOIN GRADUACAO_PESSOA AS GP ON GP.ID_PESSOA = P.ID_PESSOA
-	INNER JOIN GRADUACAO AS G ON G.ID_GRADUACAO = GP.ID_GRADUACAO
-	INNER JOIN TIPO_GRADUACAO AS T ON T.ID_TIPO_GRADUACAO = G.ID_TIPO_GRADUACAO
-	INNER JOIN FUNCAO_PESSOA ON FUNCAO_PESSOA.ID_PESSOA = P.ID_PESSOA
-	INNER JOIN FUNCAO AS F ON F.ID_FUNCAO = FUNCAO_PESSOA.ID_FUNCAO
-	INNER JOIN CARGO AS CRG ON CRG.ID_CARGO = F.ID_CARGO
-	INNER JOIN SETOR AS S ON S.ID_SETOR = F.ID_SETOR
-	INNER JOIN SUB_SETOR AS SS ON SS.ID_SUB_SETOR = F.ID_SUB_SETOR
-	INNER JOIN TURNO ON TURNO.ID_TURNO = F.ID_TURNO
-	WHERE P.NOME LIKE '%$nome%' AND P.ID_SITUACAO = '1'";
+	from pessoa as p  
+	inner join endereco as end on end.id_endereco = p.id_endereco
+	inner join estado as e on e.id_estado = p.id_estado_natal
+	inner join atividade as a on a.id_atividade = p.id_atividade
+	inner join contratacao as c on c.id_contratacao = p.id_contratacao
+	inner join situacao on situacao.id_situacao = p.id_situacao
+	inner join estado_civil as civil on civil.id_estado_civil = p.id_estado_civil	
+	inner join sexo as sexo on sexo.id_sexo = p.id_sexo
+	inner join telefone_residencial_pessoa as trp on trp.id_pessoa = p.id_pessoa
+	inner join telefone_residencial as tr on tr.id_telefone = trp.id_telefone_residencial
+	inner join graduacao_pessoa as gp on gp.id_pessoa = p.id_pessoa
+	inner join graduacao as g on g.id_graduacao = gp.id_graduacao
+	inner join tipo_graduacao as t on t.id_tipo_graduacao = g.id_tipo_graduacao
+	inner join funcao_pessoa on funcao_pessoa.id_pessoa = p.id_pessoa
+	inner join funcao as f on f.id_funcao = funcao_pessoa.id_funcao
+	inner join cargo as crg on crg.id_cargo = f.id_cargo
+	inner join setor as s on s.id_setor = f.id_setor
+	inner join sub_setor as ss on ss.id_sub_setor = f.id_sub_setor
+	inner join turno on turno.id_turno = f.id_turno
+	where p.nome like '%$nome%' and p.id_situacao = '1'";
+
 
 	echo "Pesquisa por funcao que contenham : " . $funcao . "<br>";
 	  	$resultado = mysql_query($query,$con);

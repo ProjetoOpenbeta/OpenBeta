@@ -1,15 +1,17 @@
 <?php
 include "cabecalho.php";
   
-   $pessoa  = $_POST['nome'];
+   $funcao  = $_POST['nome'];
    
-   $query = "select * from pessoa  
-	inner join endereco on endereco.id_endereco = pessoa.id_endereco 
-	inner join estado on estado.id_estado = pessoa.id_estado_natal
+   $query =
+    "select * from pessoa  
+	inner join endereco
+	on endereco.id_endereco =  pessoa.id_pessoa 
+	 inner join estado on estado.id_estado = pessoa.id_estado_natal
 	inner join estado_civil on estado_civil.id_estado_civil = pessoa.id_estado_civil
-	where pessoa.nome like '%$pessoa%'";
+	where pessoa.nome like '%$pessoa%' and pessoa.id_atividade = '1'";
 
-       echo "Pesquisa por Dados que contenham : " . $pessoa . "<br>";
+       echo "Pesquisa por funcao que contenham : " . $funcao . "<br>";
   //   }else
 //	 {
 //	   echo "Pesquisa por todas as funcoes<br>";
@@ -56,11 +58,12 @@ include "cabecalho.php";
 		echo "<b>Estado: </b>".$linha['nome_estado_inteiro'];
 		echo "<br>";
 		echo "<b>Estado Civil: </b>".$linha['estado_civil'];
-
+//	   echo "<center>".$linha['funcao']."</center>";
+//	   echo "p..........: ". $linha['p']."<br>"; 
 	   echo "<hr>";
 	   }
 	  }else{
-	    echo "Dados n&atilde;o encontrados...";
+	    echo "Dados n&atilde;o encontrado...";
 	  }
 
 ?>
