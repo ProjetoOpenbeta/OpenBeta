@@ -17,7 +17,7 @@
 		}else{
 				$_SESSION['usuario'] = $usuario;
 				$_SESSION['senha'] = $senha;
-				header("Location: admin.php");   /*  ../ significa uma pasta antes*/
+				header("Location:../principal.php");   /*  ../ significa uma pasta antes*/
 				
 			}		 
 	   /*	while ($linha = mysql_fetch_array($result))

@@ -54,3 +54,12 @@ include "cabecalho.php";
 	  }
     
 ?>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<p><a href="relfunsubsetor.html"> <img src="../../../imagens/voltar.jpg" width="110" height="36"></a>
+
+</body>
+</html>

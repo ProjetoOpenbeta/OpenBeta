@@ -1,7 +1,7 @@
 <?php
 include "cabecalho.php";
   
-   $funcao  = $_POST['nome'];
+   $nome  = $_POST['nome'];
    
    $query =
     "select * from pessoa  
@@ -9,9 +9,9 @@ include "cabecalho.php";
 	on endereco.id_endereco =  pessoa.id_pessoa 
 	 inner join estado on estado.id_estado = pessoa.id_estado_natal
 	inner join estado_civil on estado_civil.id_estado_civil = pessoa.id_estado_civil
-	where pessoa.nome like '%$pessoa%' and pessoa.id_atividade = '1'";
+	where pessoa.nome like '%$nome%' and pessoa.id_atividade = '1'";
 
-       echo "Pesquisa por funcao que contenham : " . $funcao . "<br>";
+       echo "Pesquisa por dados cadastrais que contenham : " . $nome . "<br>";
   //   }else
 //	 {
 //	   echo "Pesquisa por todas as funcoes<br>";
@@ -67,3 +67,12 @@ include "cabecalho.php";
 	  }
 
 ?>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<p><a href="reldadoscadastrais.html"> <img src="../../../imagens/voltar.jpg" width="110" height="36"></a>
+
+</body>
+</html>

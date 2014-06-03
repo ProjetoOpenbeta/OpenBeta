@@ -57,10 +57,10 @@ p.nome,
 	inner join setor as s on s.id_setor = f.id_setor
 	inner join sub_setor as ss on ss.id_sub_setor = f.id_sub_setor
 	inner join turno on turno.id_turno = f.id_turno
-	where p.nome like '%$nome%' and p.id_situacao = '1'";
+	where p.nome like '%$nome%'";
 
 
-	echo "Pesquisa por funcao que contenham : " . $funcao . "<br>";
+	echo "Pesquisa completa que contenham : " . $nome . "<br>";
 	  	$resultado = mysql_query($query,$con);
         if (!mysql_query($query, $con))
           {
@@ -139,3 +139,22 @@ p.nome,
 	  }
     
 ?>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p><a href="relcompleto.html"><img src="../../../imagens/voltar.jpg" width="110" height="36"></a>
+  
+</body>
+</html>

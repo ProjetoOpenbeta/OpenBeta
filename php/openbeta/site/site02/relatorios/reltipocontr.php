@@ -1,7 +1,7 @@
 <?php
 include "cabecalho.php";
   
-   $sexo  = $_POST['contratacao'];
+   $contratacao = $_POST['contratacao'];
     
   $query = "select  * from pessoa 
    			inner join contratacao on contratacao.id_contratacao = pessoa.id_contratacao
@@ -61,3 +61,12 @@ include "cabecalho.php";
 	  }
     
 ?>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<p><a href="reltipocontr.html"> <img src="../../../imagens/voltar.jpg" width="110" height="36"></a>
+
+</body>
+</html>

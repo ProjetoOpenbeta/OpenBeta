@@ -6,8 +6,10 @@ include "cabecalho.php";
    $query = "select * from pessoa  
 	inner join funcao_pessoa 
 	on funcao_pessoa.id_pessoa = pessoa.id_pessoa 
-	inner join funcao on funcao.id_funcao = funcao_pessoa.id_funcao 
-	inner join cargo on  cargo.id_cargo = funcao.id_cargo
+	inner join funcao
+	 on funcao.id_funcao = funcao_pessoa.id_funcao 
+	inner join cargo 
+	on  cargo.id_cargo = funcao.id_cargo
 	where cargo.nome_cargo like '%$funcao%'";
 
        echo "Pesquisa por funcao que contenham : " . $funcao . "<br>";
@@ -52,3 +54,12 @@ include "cabecalho.php";
 	  }
 
 ?>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<p><a href="relfuncargo.html"> <img src="../../../imagens/voltar.jpg" width="110" height="36"></a>
+
+</body>
+</html>

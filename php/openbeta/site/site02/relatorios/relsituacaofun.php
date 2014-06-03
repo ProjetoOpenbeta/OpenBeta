@@ -1,11 +1,12 @@
 <?php
 include "cabecalho.php";
   
-   $sexo  = $_POST['situacao'];
+   $situacao  = $_POST['situacao'];
     
   $query = "select * from pessoa 
-   			inner join situacao on situacao.id_situacao = pessoa.id_situacao
-			where situacao.tipo_situacao like '%$situacao%' and pessoa.id_atividade = '1'";
+   			inner join situacao
+			 on situacao.id_situacao = pessoa.id_situacao
+			where situacao.tipo_situacao like '%$situacao%'";
 
 	 if ($situacao) 
 	 {
@@ -60,3 +61,12 @@ include "cabecalho.php";
 	  }
     
 ?>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<p><a href="relsituacaofun.html"> <img src="../../../imagens/voltar.jpg" width="110" height="36"></a>
+
+</body>
+</html>
