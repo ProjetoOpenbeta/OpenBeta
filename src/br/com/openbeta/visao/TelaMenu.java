@@ -181,7 +181,7 @@ public class TelaMenu extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://192.168.1.10/openbeta/");
+		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://127.0.0.1/openbeta/site/site02/relatorios/index.html");
 		        } catch (IOException a) {}
 			}
 		});

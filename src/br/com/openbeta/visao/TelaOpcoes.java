@@ -46,7 +46,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JEditorPane;
+
 import java.awt.ComponentOrientation;
+
 import javax.swing.DropMode;
 
 public class TelaOpcoes extends JDialog {
@@ -257,44 +259,31 @@ public class TelaOpcoes extends JDialog {
 		JButton btnSalvarDados = new JButton("Salvar");
 		btnSalvarDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/**String situacao;
-				String estadocivil;
-				String uf;
-				Pessoa pessoa = new Pessoa();
-				pessoa.setid_pessoa(Integer.valueOf(txtCodigo.getText()));
-				pessoa.setnome(txtNome.getText());
-				pessoa.setemail_principal(txtEmail.getText());
-				pessoa.settelefone_celular(String.valueOf(txtcelular.getText()));
-				pessoa.setdata_nascto(Date.valueOf(txtDataNascimento.getText()));
-				pessoa.setnome_mae(String.valueOf(txtNomedaMae.getText()));
-				pessoa.settelefone_celular(String.valueOf(txtcelular.getText()));
-				pessoa.settelefone_celular_2(String.valueOf(txtCelularOpcional.getText()));
-				pessoa.setemail_principal(String.valueOf(txtEmail.getText()));
-				pessoa.setemail_adicional(String.valueOf(txtCelularOpcional.getText()));
-				pessoa.setrg(Integer.valueOf(txtRG.getText()));
-				//comboSituacao.getSelectedItem().toString();			
-				/*comboCivil.getSelectedItem().toString();
-				comboUF.getSelectedItem().toString();		
+				ArrayList<String> l = new ArrayList<String>();
 				
-				Endereco endereco = new Endereco();
-				endereco.setcidade(String.valueOf(txtCidade.getText()));
-				endereco.setbairro(String.valueOf(txtBairro.getText()));
-				TelefoneResidencial telresidencial = new TelefoneResidencial();
-				telresidencial.setTelefone_res(String.valueOf(txtResidencial.getText()));
-												
-				Session sessao = HibernateUtil.getSession();
-				Transaction t = sessao.beginTransaction();
-				sessao.update(endereco);
-				t.commit();
-				sessao.clear();
-				sessao.close();
-							
-				Session sessaopessoa = HibernateUtil.getSession();
-				Transaction tpessoa = sessao.beginTransaction();
-				sessaopessoa.update(pessoa);
-				tpessoa.commit();
-				sessaopessoa.clear();
-				sessaopessoa.close();*/
+				l.add(txtNome.getText());
+				l.add(txtRG.getText());
+				l.add(txtDataNascimento.getText());
+				l.add(txtNomedaMae.getText());
+				l.add(txtEmail.getText());
+				l.add(txtEmailOpcional.getText());
+				l.add(txtcelular.getText());
+				l.add(txtCelularOpcional.getText());
+				l.add(txtCidadeNatal.getText());
+				l.add(txtOutro.getText());
+				l.add(txtCodigo.getText());
+				
+				
+				JDBC j = new JDBC();
+				
+				try {
+					
+					j.alterDados(l);
+					
+				} catch (ClassNotFoundException | SQLException e) {
+					JOptionPane.showMessageDialog(null, "Erro: "+e.getMessage());
+				}
+
 			}
 		});
 		btnSalvarDados.setFont(new Font("Arial", Font.PLAIN, 12));

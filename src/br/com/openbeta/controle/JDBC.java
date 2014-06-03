@@ -173,6 +173,7 @@ public class JDBC {
 		stmt = con.prepareStatement("UPDATE pessoa SET nome=?, rg=?, data_nascto=?, nome_mae=?, email_principal=?, email_adicional=?, telefone_celular=?, telefone_celular_2=?, cidade_natal=?, outros=? "
 				+ "WHERE id_pessoa=?;");
 		
+		
 		stmt.setString(1, lista.get(0));
 		stmt.setString(2, lista.get(1));
 		stmt.setString(3, lista.get(2));
