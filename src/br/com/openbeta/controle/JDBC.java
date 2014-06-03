@@ -1,14 +1,11 @@
 package br.com.openbeta.controle;
 
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -78,11 +75,7 @@ public class JDBC {
 						+ "inner join graduacao on graduacao.id_graduacao=graduacao_pessoa.id_graduacao "
 						+ "inner join tipo_graduacao on tipo_graduacao.id_tipo_graduacao=graduacao.id_tipo_graduacao"
 						+ " where pessoa.id_pessoa=?;");
-			case 2:
-			
-			case 3:
-				
-			case 4:
+
 		}
 		
 		DefaultTableModel tabela = (DefaultTableModel) t.getModel();

@@ -226,7 +226,9 @@ public class TelaMenu extends JFrame {
 		btnTrocaSenha.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				new TelaAlteracaoSenha().setVisible(true);
+				TelaAlteracaoSenha ta = new TelaAlteracaoSenha();
+				ta.setLocationRelativeTo(null);
+				ta.setVisible(true);
 			}
 		});
 		btnTrocaSenha.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\trocasenha.png"));

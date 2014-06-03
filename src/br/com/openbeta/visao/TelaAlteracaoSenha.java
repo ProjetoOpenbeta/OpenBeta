@@ -278,6 +278,7 @@ public class TelaAlteracaoSenha extends JFrame {
 		                JOptionPane.showMessageDialog(null,"Nova senha precisa ser diferente da senha anterior!","NOVA SENHA INVÁLIDA",JOptionPane.ERROR_MESSAGE);
 		            } else {
 		                new TelaMenu().setVisible(true);
+		                
 		                JDBC conexaoJdbc = new JDBC();
 		                Pessoa pessoa = new Pessoa();
 		                pessoa.setcpf(cpf);

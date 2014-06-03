@@ -38,7 +38,8 @@ import br.com.openbeta.visao.TelaMenu;
 
 public class Md5 {
         
-        private static EAO eao = new EAO(Pessoa.class);
+        @SuppressWarnings({ "unchecked", "rawtypes" })
+		private static EAO eao = new EAO(Pessoa.class);
         
         public static String senha_principal;
         public static String usuario_principal;    
@@ -65,7 +66,8 @@ public class Md5 {
         }
         
 
-        public static String catchDB(String usuario) {
+        @SuppressWarnings("unchecked")
+		public static String catchDB(String usuario) {
             List<Pessoa> lista = eao.getLogin(usuario);
             String senha_do_banco = lista.get(0).getsenha();
             return senha_do_banco;
