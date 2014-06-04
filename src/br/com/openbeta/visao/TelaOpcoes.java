@@ -50,6 +50,8 @@ import javax.swing.JEditorPane;
 import java.awt.ComponentOrientation;
 
 import javax.swing.DropMode;
+import javax.swing.JTextPane;
+import javax.swing.border.BevelBorder;
 
 public class TelaOpcoes extends JDialog {
 	/**
@@ -74,7 +76,7 @@ public class TelaOpcoes extends JDialog {
 	private JTextField txtEmailOpcional;
 	private JTextField txtDataNascimento;
 	private JTextField txtCidadeNatal;
-	private JTextField txtOutro;
+	private JTextPane txtOutros;
 	
 	/**
 	 * Launch the application.
@@ -191,7 +193,7 @@ public class TelaOpcoes extends JDialog {
 							txtcelular.setText(String.valueOf(pessoa.get(6)));
 							txtCelularOpcional.setText(String.valueOf(pessoa.get(7)));						
 							txtCidadeNatal.setText(String.valueOf(pessoa.get(8)));
-							txtOutro.setText(String.valueOf(pessoa.get(9)));
+							txtOutros.setText(String.valueOf(pessoa.get(9)));
 							
 							/*
 							for (int c=0; c <= pessoa.size();c++){
@@ -239,6 +241,7 @@ public class TelaOpcoes extends JDialog {
 		btnLimparDados.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnLimparDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				txtCodigo.setText("");
 				txtNome.setText("");
 				txtRG.setText("");
@@ -248,7 +251,7 @@ public class TelaOpcoes extends JDialog {
 				txtDataNascimento.setText("");
 				txtEmail.setText("");
 				txtEmailOpcional.setText("");
-				txtOutro.setText("");
+				txtOutros.setText("");
 				txtCidadeNatal.setText("");
 				
 			}
@@ -270,7 +273,7 @@ public class TelaOpcoes extends JDialog {
 				l.add(txtcelular.getText());
 				l.add(txtCelularOpcional.getText());
 				l.add(txtCidadeNatal.getText());
-				l.add(txtOutro.getText());
+				l.add(txtOutros.getText());
 				l.add(txtCodigo.getText());
 				
 				
@@ -368,11 +371,10 @@ public class TelaOpcoes extends JDialog {
 		panelDados.add(txtCidadeNatal);
 		txtCidadeNatal.setColumns(10);
 		
-		txtOutro = new JTextField();
-		txtOutro.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		txtOutro.setBounds(113, 332, 237, 55);
-		panelDados.add(txtOutro);
-		txtOutro.setColumns(10);
+		txtOutros = new JTextPane();
+		txtOutros.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtOutros.setBounds(113, 334, 343, 76);
+		panelDados.add(txtOutros);
 		panelDados.setVisible(false);
 		
 		panelFun = new JPanel();
