@@ -164,7 +164,9 @@ public class TelaMenu extends JFrame {
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				new TelaConsulta().setVisible(true);
+				TelaConsulta tc = new TelaConsulta();
+				tc.setLocationRelativeTo(null);
+				tc.setVisible(true);
 			}
 		});
 		btnConsultar.setIcon(new ImageIcon("C:\\openbeta\\OpenBeta\\src\\consultar.png"));
@@ -181,7 +183,7 @@ public class TelaMenu extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://127.0.0.1/openbeta/site/site02/relatorios/index.html");
+		            Runtime.getRuntime().exec("cmd.exe /c start chrome.exe http://192.168.1.10/openbeta/site/site02/relatorios/index.html");
 		        } catch (IOException a) {}
 			}
 		});
@@ -196,7 +198,8 @@ public class TelaMenu extends JFrame {
 		opcoes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				TelaOpcoes to = new TelaOpcoes();
+				TelaAlteração to = new TelaAlteração();
+				to.setLocationRelativeTo(null);
 				to.setVisible(true);
 			}
 		});

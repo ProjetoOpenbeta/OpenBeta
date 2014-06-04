@@ -53,7 +53,7 @@ import javax.swing.DropMode;
 import javax.swing.JTextPane;
 import javax.swing.border.BevelBorder;
 
-public class TelaOpcoes extends JDialog {
+public class TelaAlteração extends JDialog {
 	/**
 	 * 
 	 */
@@ -85,7 +85,7 @@ public class TelaOpcoes extends JDialog {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaOpcoes dialog = new TelaOpcoes();
+					TelaAlteração dialog = new TelaAlteração();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
 				} catch (Exception e) {
@@ -98,7 +98,8 @@ public class TelaOpcoes extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public TelaOpcoes() {
+	public TelaAlteração() {
+		setTitle("Tela Altera\u00E7\u00E3o de Dados");
 		setBounds(100, 100, 883, 504);
 		getContentPane().setLayout(null);
 		
@@ -109,6 +110,7 @@ public class TelaOpcoes extends JDialog {
 		panel.setLayout(null);
 		
 		JButton btnAlteraGraduao = new JButton("Altera Gradua\u00E7\u00E3o");
+		btnAlteraGraduao.setVisible(false);
 		btnAlteraGraduao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
 				panelFun.setVisible(false);
@@ -122,6 +124,7 @@ public class TelaOpcoes extends JDialog {
 		panel.add(btnAlteraGraduao);
 		
 		JButton btnAlteraFuno = new JButton("Altera Fun\u00E7\u00E3o");
+		btnAlteraFuno.setVisible(false);
 		btnAlteraFuno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelGrad.setVisible(false);
