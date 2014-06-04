@@ -1,3 +1,6 @@
+<?php 
+	include 'relatorios/verificacao.php';
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0014)about:internet -->
@@ -59,12 +62,6 @@ function MM_preloadImages() { //v3.0
 </head>
 <body bgcolor="#ffffff" onload="MM_preloadImages('carmeloindex_r2_c4_s2.gif','carmeloindex_r2_c4_s3.gif','carmeloindex_r3_c4_s2.gif','carmeloindex_r3_c4_s3.gif','carmeloindex_r2_c12_s2.gif','carmeloindex_r2_c12_s3.gif','carmeloindex_r4_c14_s2.gif','carmeloindex_r4_c14_s3.gif','carmeloindex_r3_c2_s2.gif','carmeloindex_r3_c2_s3.gif','carmeloindex_r4_c2_s2.gif','carmeloindex_r4_c2_s3.gif','carmeloindex_r3_c8_s2.gif','carmeloindex_r3_c8_s3.gif','carmeloindex_r4_c3_s2.gif','carmeloindex_r4_c3_s3.gif','carmeloindex_r4_c6_s2.gif','carmeloindex_r4_c6_s3.gif','carmeloindex_r4_c10_s2.gif','carmeloindex_r4_c10_s3.gif');">
 <table style="display: inline-table;" border="0" cellpadding="0" cellspacing="0" width="1400">
-<?php session_start();
-
-if(empty($_SESSION['usuario']) && (empty($_SESSION['senha']))){	
-header("Location: index.html");
-}
-	?>
 <!-- fwtable fwsrc="sitecarmeloazul.png" fwpage="Page 1" fwbase="carmeloindex.gif" fwstyle="Dreamweaver" fwdocid = "1873214046" fwnested="0" -->
   <tr>
    <td><img src="spacer.gif" width="282" height="1" border="0" alt="" /></td>

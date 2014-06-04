@@ -1,6 +1,6 @@
-﻿
-
-<?php session_start();include "cabecalho.php";
+﻿<?php 
+	session_start();
+	include "cabecalho.php";
 	
 	$usuario = $_POST['usuario'];
 	$senha   = md5($_POST['senha']);
@@ -15,9 +15,12 @@
 			echo '<center><font color="red" size="5">ERRO: USUÁRIO OU SENHA INVÁLIDOS</font></center>';
 			
 		}else{
+				//$usuario = mysql_fetch_array($query['nome']);
 				$_SESSION['usuario'] = $usuario;
 				$_SESSION['senha'] = $senha;
-				header("Location:../principal.php");   /*  ../ significa uma pasta antes*/
+				
+				
+				header("Location: ../principal.php" );   /*  ../ significa uma pasta antes*/
 				
 			}		 
 	   /*	while ($linha = mysql_fetch_array($result))
