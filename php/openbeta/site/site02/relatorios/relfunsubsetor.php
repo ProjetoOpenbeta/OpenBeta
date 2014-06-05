@@ -1,6 +1,6 @@
 <?php
 include "cabecalho.php";
-  
+ include "verificacao2.php"; 
    $subsetor  = $_POST['sub_setor'];
    $query = "select * from pessoa
    inner join funcao_pessoa on funcao_pessoa.id_pessoa = pessoa.id_pessoa

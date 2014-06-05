@@ -1,5 +1,6 @@
 <?php
 include "cabecalho.php";
+include "verificacao2.php"; 
   
    $nome  = $_POST['nome'];
    

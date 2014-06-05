@@ -1,6 +1,6 @@
 <?php
 include "cabecalho.php";
-  
+include "verificacao2.php";  
    $situacao  = $_POST['situacao'];
     
   $query = "select * from pessoa 
