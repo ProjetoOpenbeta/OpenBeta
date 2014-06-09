@@ -27,7 +27,7 @@ public class JDBC {
 	//Método responsável por abrir as conexões com banco.
 	private void abreConexao() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://192.168.1.10/openbeta","openbeta","Wheezy$2014");
+		con = DriverManager.getConnection("jdbc:mysql://192.168.1.10/openbeta","root","wheezy$2014");
 	}
 	
 	//Método responsavel por fechar as conexões com o banco
