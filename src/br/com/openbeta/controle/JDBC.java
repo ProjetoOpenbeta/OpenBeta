@@ -76,7 +76,7 @@ public class JDBC {
 						+ "inner join graduacao_pessoa on graduacao_pessoa.id_pessoa=pessoa.id_pessoa "
 						+ "inner join graduacao on graduacao.id_graduacao=graduacao_pessoa.id_graduacao "
 						+ "inner join tipo_graduacao on tipo_graduacao.id_tipo_graduacao=graduacao.id_tipo_graduacao"
-						+ " where pessoa.id_pessoa=?;");
+						+ " where pessoa.registro=?;");
 
 		}
 		
@@ -136,7 +136,7 @@ public class JDBC {
 		
 		abreConexao();
 		
-		stmt = con.prepareStatement("SELECT * FROM pessoa WHERE id_pessoa=?;");
+		stmt = con.prepareStatement("SELECT * FROM pessoa WHERE registro=?;");
 		
 		stmt.setString(1, id);
 		
