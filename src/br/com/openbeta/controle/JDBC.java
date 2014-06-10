@@ -59,6 +59,8 @@ public class JDBC {
 		fechaConexao();
 	}
 	
+	//Metodo utilizado na classe "TelaConsulta". O parametro tipo pesuisa é definido pelo rediobutton utilizado na tela tendo, até agora,
+	
 	public void consultaRegistros(Pessoa p, Integer tipodePesquisa, JTable t) throws ClassNotFoundException, SQLException{
 		
 		abreConexao();
