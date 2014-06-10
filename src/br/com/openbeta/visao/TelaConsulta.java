@@ -147,6 +147,9 @@ public class TelaConsulta extends JFrame {
 		jBPesquisar = new JButton("Pesquisar");
 		jBPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(txtCodigo.getText()==""){
+					JOptionPane.showMessageDialog(null, "Insira um registro no campo 'Código'!");
+				}else{
 				JDBC j = new JDBC();
 				Pessoa p = new Pessoa();
 				p.setid_pessoa(Integer.valueOf(txtCodigo.getText()));
@@ -172,6 +175,7 @@ public class TelaConsulta extends JFrame {
 					default:
 						JOptionPane.showMessageDialog(null, "Pesquisa inválida por favor insira ou o código ou o nome do registro!");
 				}*/
+				}	
 			}
 		});
 		jBPesquisar.setFont(new Font("Arial", Font.PLAIN, 11));
