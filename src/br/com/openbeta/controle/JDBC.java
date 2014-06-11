@@ -166,7 +166,7 @@ public class JDBC {
 	public void alterDados(ArrayList<String> lista) throws ClassNotFoundException, SQLException{
 		abreConexao();
 		stmt = con.prepareStatement("UPDATE pessoa SET nome=?, rg=?, data_nascto=?, nome_mae=?, email_principal=?, email_adicional=?, telefone_celular=?, telefone_celular_2=?, cidade_natal=?, outros=? "
-				+ "WHERE id_pessoa=?;");
+				+ "WHERE registro=?;");
 		
 		
 		stmt.setString(1, lista.get(0));
